@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Task</title>
+		<link rel="stylesheet" href="indexStyle.css"/>
+	</head>
+	<body>
+		<article id="app"  ref="app">
+			<header v-bind:class="{'header-popup': tagOpen}" ref="header">
+				<h1 v-if="!basketOpen && !tagOpen ">Shopping Cart — Make Purchases Now!</h1>
+				<template v-else>
+				<img class="back-button" src="backbutton.png" v-on:click="closeTag()"/>
+				<h2 class="nameTags"> {{ tagName }} </h2>
+				</template>
+				<div class="basket" v-on:click="clickBasket()">
+					<img src="cart copy.png"/>
+					<p id="summShop"> $ {{ basket.basketSumm }} </p>
+				</div>
+			</header>
+			<article ref="content" v-show="!tagOpen  && !basketOpen">
+				<tag-open name-tag="T-Shirts" class="t-shirts" v-on:click-tag="clickTag( 'T-Shirts' )"></tag-open>
+				<tag-open name-tag="Cards" class="cards" v-on:click-tag="clickTag( 'Cards' )"></tag-open>
+				<tag-open name-tag="Pens & Pencils" class="pens-pencils" v-on:click-tag="clickTag( 'Pens & Pencils' )"></tag-open>		
+				<tag-open name-tag="Notebooks" class="notebooks" v-on:click-tag="clickTag( 'Notebooks' )"></tag-open>
+				<tag-open name-tag="Toys" class="toys add-margin-toys" v-on:click-tag="clickTag( 'Toys' )"></tag-open>
+				<tag-open name-tag="Bags" class="bags" v-on:click-tag="clickTag( 'Bags' )"></tag-open>
+				<tag-open name-tag="Scrum Cards" class="scrum-cards" v-on:click-tag="clickTag( 'Scrum Cards' )"></tag-open>
+				<tag-open name-tag="Magnets" class="magnets" v-on:click-tag="clickTag( 'Magnets' )"></tag-open>
+				<tag-open name-tag="Caps" class="caps" v-on:click-tag="clickTag( 'Caps' )"></tag-open>
+				<tag-open name-tag="Magnets" class="magnets" v-on:click-tag="clickTag( 'Magnets' )"></tag-open>
+				<tag-open name-tag="Pens & Pencils" class="pens-pencils add-margin-pens" v-on:click-tag="clickTag( 'Pens & Pencils' )"></tag-open>
+				<tag-open name-tag="Toys" class="toys" v-on:click-tag="clickTag( 'Toys' )"></tag-open>
+			</article>
+			<article v-show="tagOpen && !basketOpen" id="godsApp" class="open-goods">
+			</article>
+			<article v-show="basketOpen" id="basketApp" class="open-goods" v-bind:class="{'open-shop': basketOpen}">
+			</article>
+		</article>
+		<script src="vue.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="indexJSVue.js"></script>
+
+	</body>
+</html>
