@@ -1,12 +1,15 @@
 <template>
 <nav class="menu" :class="{ 'menu--open' : showMenu, 'menu--close' : !showMenu}">
-    <header class="menu__header">
-        <img class="menu__header__img" src="../assets/logo.png" alt="icon">
-        <h1 class="menu__header__text">Гетманчук Ілля<br>Портфолио</h1>
-    </header>
-    <div class="menu__btns">
-        <MenuContextBtn nameBtn="Портфолио" :menuBtns="portfolioBtns"></MenuContextBtn>
-        <MenuContextBtn nameBtn="Контакты" :menuBtns="null"></MenuContextBtn>
+    <div class="menu__bg">
+        <header class="menu__header">
+            <img class="menu__header__img" src="../assets/logo.jpg" alt="icon">
+            <h1 class="menu__header__text">Гетманчук Илья<br>Портфолио</h1>
+        </header>
+        <div class="menu__btns">
+            <MenuContextBtn nameBtn="Обо мне" :menuBtns="null"></MenuContextBtn>
+            <MenuContextBtn nameBtn="Портфолио" :menuBtns="portfolioBtns"></MenuContextBtn>
+            <MenuContextBtn nameBtn="Контакты" :menuBtns="null"></MenuContextBtn>
+        </div>
     </div>
 </nav>
 </template>
@@ -24,8 +27,11 @@ export default {
   },
   data () {
     return {
-      portfolioBtns: [{ name: '1' }, { name: '2' }, { name: '3' }]
+      portfolioBtns: [{ name: 'Smart Orange' }, { name: 'Shop' }, { name: 'SCIENCEENJOY' }, { name: 'Viseven' }, { name: 'Blog' }, { name: 'Vintage' }]
     }
+  },
+  mounted () {
+    this.$children[0].activeContextBtn = true
   }
 }
 </script>
@@ -33,28 +39,46 @@ export default {
 <style lang="scss" scoped>
 @keyframes open {
         from {
-            margin-left: -30%;
+            margin-right: -25%;
         }
         to {
-            margin-left: 0;
+            margin-right: 0;
         }
     }
+.menu--open{
+    animation: open 0.6s;
+}
+</style>
+
+<style lang="scss">
+$main_text: #ffffff;
+
 .menu{
-    display: flex;
-    width: 30%;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    padding: 20px 10px;
+    position: relative;
+    width: 25%;
+    background-image: url('../assets/imgs/sidebar.jpg');
+    background-repeat: no-repeat;
     background-color: rgba($color: #212120, $alpha: 0.8) ;
+    background-size: 175% 100%;
+    background-position: 50%;
+    &__bg{
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: #212120, $alpha: 0.8) ;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        padding: 20px 10px;
+    }
     &__header{
         display: flex;
         width: 100%;
         justify-content: space-around;
         align-items: center;
         padding: 10px 0;
-        border-top: 2px solid rgba($color: #606061, $alpha: 0.7);
-        border-bottom: 2px solid rgba($color: #606061, $alpha: 0.7);
+        border-top: 2px solid rgba($color: #606061, $alpha: 0.9);
+        border-bottom: 2px solid rgba($color: #606061, $alpha: 0.9);
         margin-bottom: 10px;
         &__img{
             height: 50px;
@@ -67,7 +91,7 @@ export default {
             font-weight: 400;
             margin: 0;
             font-size: 28px;
-            color: black;
+            color: $main_text;
             line-height: 28px;
         }
     }
@@ -75,18 +99,15 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: start;
+        overflow: auto;
         align-items: center;
-        padding: 10px 0;
+        padding: 10px 5px 10px 0px;
         width: 100%;
         transition: all 0.2s linear;
     }
-    &--open{
-        animation: open 0.6s;
-    }
     &--close{
         transition: all 0.4s linear;
-        margin-left: -30%;
-        padding: 20px 0;
+        margin-right: -25%;
         z-index: -1;
     }
 }
