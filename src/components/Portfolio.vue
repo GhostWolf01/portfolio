@@ -77,6 +77,7 @@
               <li class="portfolio__block-list-elem">VueCli</li>
               <li class="portfolio__block-list-elem">Webpack</li>
               <li class="portfolio__block-list-elem">Scss</li>
+              <li class="portfolio__block-list-elem">BEM</li>
             </ul>
             <p class="portfolio__block-text">Веб-блог<br>Просмотр фото реализовано через popup</p>
           </div>
