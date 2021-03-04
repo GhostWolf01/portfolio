@@ -161,6 +161,7 @@ $btn_text: #ffffff;
     align-items: center;
   }
   &__img{
+    max-width: 380px;
     width: 35%;
     height: 100%;
     z-index: 1;
