@@ -35,6 +35,7 @@ $main_text: #ffffff;
     justify-content: center;
     align-items: center;
     padding: 30px 20px;
+    overflow: auto;
     &__email{
       display: flex;
       justify-content: center;
@@ -44,6 +45,14 @@ $main_text: #ffffff;
         width: 28px;
         height: 28px;
         filter: invert(100%);
+        @media(max-width: 768px){
+          width: 24px;
+          height: 24px;
+        }
+        @media(max-width: 480px){
+          width: 20px;
+          height: 20px;
+        }
       }
       &-text{
         margin-left: 10px;
@@ -53,6 +62,14 @@ $main_text: #ffffff;
         font-weight: 400;
         font-size: 28px;
         line-height: 28px;
+        @media(max-width: 768px){
+          font-size: 24px;
+          line-height: 24px;
+        }
+        @media(max-width: 480px){
+          font-size: 20px;
+          line-height: 20px;
+        }
       }
     }
     &__telegram{
@@ -63,6 +80,14 @@ $main_text: #ffffff;
         width: 28px;
         height: 28px;
         filter: invert(100%);
+        @media(max-width: 768px){
+          width: 24px;
+          height: 24px;
+        }
+        @media(max-width: 480px){
+          width: 20px;
+          height: 20px;
+        }
       }
       &-text{
         margin-left: 10px;
@@ -72,6 +97,14 @@ $main_text: #ffffff;
         font-weight: 400;
         font-size: 28px;
         line-height: 28px;
+        @media(max-width: 768px){
+          font-size: 24px;
+          line-height: 24px;
+        }
+        @media(max-width: 480px){
+          font-size: 20px;
+          line-height: 20px;
+        }
       }
     }
 }

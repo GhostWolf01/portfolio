@@ -77,7 +77,7 @@ $main_text: #ffffff;
     &-bg{
       width: 100%;
       height: 100%;
-      background-color: rgba($color: #000000, $alpha: 0.3) ;
+      background-color: rgba($color: #000000, $alpha: 0.2) ;
       display: flex;
       flex-direction: column;
     }
@@ -100,6 +100,7 @@ $main_text: #ffffff;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                flex-shrink: 0;
                 cursor: pointer;
                 transition: all 0.3s linear;
                 &:hover{
@@ -116,10 +117,14 @@ $main_text: #ffffff;
           font-family: 'Roboto';
           font-weight: 400;
           margin: 0;
-          font-size: 34px;
           color: $main_text;
+          font-size: 34px;
           line-height: 34px;
           width: 100%;
+          @media(max-width: 480px){
+            font-size: 22px;
+            line-height: 22px;
+          }
         }
     }
 }

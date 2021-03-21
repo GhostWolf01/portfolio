@@ -40,6 +40,9 @@ export default {
 @keyframes open {
         from {
             margin-right: -25%;
+            @media(max-width: 480px){
+                margin-right: -50%;
+            }
         }
         to {
             margin-right: 0;
@@ -54,13 +57,15 @@ export default {
 $main_text: #ffffff;
 
 .menu{
-    position: relative;
     width: 25%;
     background-image: url('../assets/imgs/sidebar.jpg');
     background-repeat: no-repeat;
     background-color: rgba($color: #212120, $alpha: 0.8) ;
     background-size: 175% 100%;
     background-position: 50%;
+    @media(max-width: 480px){
+        width: 50%;
+    }
     &__bg{
         width: 100%;
         height: 100%;
@@ -85,6 +90,10 @@ $main_text: #ffffff;
             width: 50px;
             border-radius: 50%;
             background-color: rgba($color: #868e96, $alpha: 0.6);
+            @media (max-width: 768px){
+                height: 40px;
+                width: 40px;
+            }
         }
         &__text{
             font-family: 'Roboto';
@@ -93,6 +102,10 @@ $main_text: #ffffff;
             font-size: 28px;
             color: $main_text;
             line-height: 28px;
+            @media (max-width: 768px){
+                font-size: 22px;
+                line-height: 22px;
+            }
         }
     }
     &__btns{
@@ -108,6 +121,9 @@ $main_text: #ffffff;
     &--close{
         transition: all 0.4s linear;
         margin-right: -25%;
+        @media(max-width: 480px){
+            margin-right: -50%;
+        }
         z-index: -1;
     }
 }

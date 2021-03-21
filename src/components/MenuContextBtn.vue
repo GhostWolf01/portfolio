@@ -96,6 +96,11 @@ $active_text: #ffffffc0;
     color: $main_text;
     line-height: 28px;
     transition: all 0.15s linear;
+    @media(max-width: 768px)
+    {
+      font-size: 20px;
+      line-height: 20px;
+    }
     & p{
       width: 100%;
     }

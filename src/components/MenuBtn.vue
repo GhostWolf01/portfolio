@@ -70,6 +70,11 @@ $active_text: #ffffffc0;
   justify-content: flex-start;
   align-items: center;
   transition: all 0.15s linear;
+  @media(max-width: 768px)
+  {
+    font-size: 20px;
+    line-height: 20px;
+  }
   &:hover{
     background-color: rgba($color: #c8c8c8, $alpha: 0.2) ;
     color: $hovet_text;
