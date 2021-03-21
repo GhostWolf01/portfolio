@@ -164,7 +164,7 @@ $btn_text: #ffffff;
   &__img{
     max-width: 380px;
     width: 35%;
-    max-height: 200px;
+    max-height: 220px;
     height: 100%;
     z-index: 1;
     @media(max-width: 480px) {
@@ -190,7 +190,7 @@ $btn_text: #ffffff;
       }
     &-info{
       padding-top: 10px;
-      padding-bottom: 5px;
+      padding-bottom: 10px;
       width: 62.5%;
       border-radius: 25px;
       height: max-content;
@@ -220,7 +220,8 @@ $btn_text: #ffffff;
     }
     &-text-list{
       padding-top: 20px;
-      min-height: 60%;
+      min-height: 200px*0.6;
+      height: max-content;
       width: 100%;
       display: flex;
       justify-content: flex-start;
