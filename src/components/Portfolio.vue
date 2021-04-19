@@ -128,14 +128,20 @@ export default {
     open (n) {
       this.activeComponent = n
       this.activeCompenents = true
-      const portfolio = this.$root.$children[0].$children[1].$children[1]
-      portfolio.activeBtn = true
-      portfolio.activeContext = true
-      portfolio.activeContextBtn = true
-      portfolio.$children[n].activeBtn = true
+      this.activeMenuPortfolio(n)
+    },
+    activeMenuPortfolio (n) {
+      this.$root.$emit('activeMenuPortfolio', n)
     }
+  },
+  mounted () {
+    this.$root.$on('portfolioActiveCompenents', (active) => {
+      this.activeCompenents = active
+    })
+    this.$root.$on('portfolioActiveComponent', (i) => {
+      this.activeComponent = i
+    })
   }
-
 }
 </script>
 

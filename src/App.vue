@@ -33,6 +33,11 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+    this.$root.$on('appActiveComponent', (i) => {
+      this.activeComponent = i
+    })
   }
 }
 </script>

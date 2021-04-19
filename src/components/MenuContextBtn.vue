@@ -52,7 +52,8 @@ export default {
         this.activeContextBtn = true
         for (let i = 0; i < this.$parent.$children.length; i++) {
           if (this._uid === this.$parent.$children[i]._uid) {
-            this.$root.$children[0].activeComponent = i
+            this.appActiveComponent(i)
+            break
           }
         }
       } else {
@@ -63,9 +64,25 @@ export default {
             menuBtn.activeBtn = false
           }
         }
-        this.$root.$children[0].$children[0].$children[0].activeCompenents = false
+        this.portfolioActiveCompenents(false)
       }
+    },
+    appActiveComponent (i) {
+      this.$root.$emit('appActiveComponent', i)
+    },
+    portfolioActiveCompenents (active) {
+      this.$root.$emit('portfolioActiveCompenents', active)
     }
+  },
+  mounted () {
+    this.$root.$on('activeMenuPortfolio', (n) => {
+      if (this.nameBtn === 'Портфолио') {
+        this.activeBtn = true
+        this.activeContext = true
+        this.activeContextBtn = true
+        this.$children[n].activeBtn = true
+      }
+    })
   }
 }
 </script>

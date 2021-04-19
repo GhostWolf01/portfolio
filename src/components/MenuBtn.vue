@@ -21,11 +21,17 @@ export default {
       for (let i = 0; i < this.$parent.$children.length; i++) {
         this.$parent.$children[i].activeBtn = false
         if (this._uid === this.$parent.$children[i]._uid) {
-          this.$root.$children[0].$children[0].$children[0].activeComponent = i
-          this.$root.$children[0].$children[0].$children[0].activeCompenents = true
+          this.portfolioActiveComponent(i)
+          this.portfolioActiveCompenents(true)
         }
       }
       this.activeBtn = !this.activeBtn
+    },
+    portfolioActiveCompenents (active) {
+      this.$root.$emit('portfolioActiveCompenents', active)
+    },
+    portfolioActiveComponent (i) {
+      this.$root.$emit('portfolioActiveComponent', i)
     }
   }
 }
