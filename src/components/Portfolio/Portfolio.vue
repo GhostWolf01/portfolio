@@ -1,106 +1,16 @@
 <template>
 <section class="portfolio">
     <div class="portfolio__imgs" v-show="!activeComponents">
-      <div class="portfolio__block">
-        <img class="portfolio__img" src="../../assets/imgs/SmartOrange-img.jpg" alt="Syte">
-        <div class="portfolio__block-info">
-          <h3 class="portfolio__block-header">SmartOrange</h3>
-          <div class="portfolio__block-text-list">
-            <ul class="portfolio__block-list">
-              <li class="portfolio__block-list-elem">Gulp</li>
-              <li class="portfolio__block-list-elem">Jqery</li>
-              <li class="portfolio__block-list-elem">Slick</li>
-              <li class="portfolio__block-list-elem">Scss</li>
-              <li class="portfolio__block-list-elem">BEM</li>
-            </ul>
-            <p class="portfolio__block-text">
-              Афиша дома<br>Реализовано переключение слайдов с помощю slick,
-              preloader страница ждет полной загрузки контента, весь функционал реализована на jqery
-            </p>
-          </div>
-          <button class="portfolio__block-btn" @click="open(0)">Посмотреть</button>
-        </div>
-      </div>
-      <div class="portfolio__block">
-        <img class="portfolio__img" src="../../assets/imgs/Shop-img.jpg" alt="Syte">
-        <div class="portfolio__block-info">
-          <h3 class="portfolio__block-header">Shop</h3>
-          <div class="portfolio__block-text-list">
-            <ul class="portfolio__block-list">
-              <li class="portfolio__block-list-elem">Vue</li>
-              <li class="portfolio__block-list-elem">Scss</li>
-              <li class="portfolio__block-list-elem">BEM</li>
-            </ul>
-            <p class="portfolio__block-text">
-              Магазин на планшеты<br>Подгрузка даных товаров с сервера через асинхроный запрос
-            </p>
-          </div>
-          <button class="portfolio__block-btn" @click="open(1)">Посмотреть</button>
-        </div>
-      </div>
-      <div class="portfolio__block">
-        <img class="portfolio__img" src="../../assets/imgs/ScienceEnjoy-img.jpg" alt="Syte">
-        <div class="portfolio__block-info">
-          <h3 class="portfolio__block-header">ScienceEnjoy</h3>
-          <div class="portfolio__block-text-list">
-            <ul class="portfolio__block-list">
-              <li class="portfolio__block-list-elem">Bootstrap</li>
-            </ul>
-            <p class="portfolio__block-text">Афиша сайта дезайнеров<br></p>
-          </div>
-          <button class="portfolio__block-btn" @click="open(2)">Посмотреть</button>
-        </div>
-      </div>
-      <div class="portfolio__block">
-        <img class="portfolio__img" src="../../assets/imgs/Viseven-img.jpg" alt="Syte">
-        <div class="portfolio__block-info">
-          <h3 class="portfolio__block-header">Viseven</h3>
-          <div class="portfolio__block-text-list">
-            <ul class="portfolio__block-list">
-              <li class="portfolio__block-list-elem">Vue</li>
-              <li class="portfolio__block-list-elem">VueCli</li>
-              <li class="portfolio__block-list-elem">Webpack</li>
-              <li class="portfolio__block-list-elem">Scss</li>
-            </ul>
-            <p class="portfolio__block-text">Афиша фарм компании<br></p>
-          </div>
-          <button class="portfolio__block-btn" @click="open(3)">Посмотреть</button>
-        </div>
-      </div>
-      <div class="portfolio__block">
-        <img class="portfolio__img" src="../../assets/imgs/Blog-img.jpg" alt="Syte">
-        <div class="portfolio__block-info">
-          <h3 class="portfolio__block-header">Blog</h3>
-          <div class="portfolio__block-text-list">
-            <ul class="portfolio__block-list">
-              <li class="portfolio__block-list-elem">Vue</li>
-              <li class="portfolio__block-list-elem">VueCli</li>
-              <li class="portfolio__block-list-elem">Webpack</li>
-              <li class="portfolio__block-list-elem">Scss</li>
-              <li class="portfolio__block-list-elem">BEM</li>
-            </ul>
-            <p class="portfolio__block-text">Веб-блог<br>Просмотр фото реализовано через popup</p>
-          </div>
-          <button class="portfolio__block-btn" @click="open(4)">Посмотреть</button>
-        </div>
-      </div>
-      <div class="portfolio__block">
-        <img class="portfolio__img" src="../../assets/imgs/Vintage-img.jpg" alt="Syte">
-        <div class="portfolio__block-info">
-          <h3 class="portfolio__block-header">Vintage</h3>
-          <div class="portfolio__block-text-list">
-            <ul class="portfolio__block-list">
-              <li class="portfolio__block-list-elem">Vue</li>
-              <li class="portfolio__block-list-elem">VueCli</li>
-              <li class="portfolio__block-list-elem">Webpack</li>
-              <li class="portfolio__block-list-elem">BEM</li>
-              <li class="portfolio__block-list-elem">Scss</li>
-            </ul>
-            <p class="portfolio__block-text">Форма потдержки<br>Отправка формы на сервер для дальнейшей обработки</p>
-          </div>
-          <button class="portfolio__block-btn" @click="open(5)">Посмотреть</button>
-        </div>
-      </div>
+      <PortfolioItem v-for="portfolioComponent in portfolioComponents"
+      :key=portfolioComponent.id
+      :id=portfolioComponent.id
+      :nameItem=portfolioComponent.name
+      :text=portfolioComponent.text
+      :imgSrc=portfolioComponent.imgSrc
+      :imgAlt=portfolioComponent.imgAlt
+      :listArray=portfolioComponent.listArray
+      @open=open
+      />
     </div>
     <component :is='componets[activeComponent]' v-show="activeComponents"></component>
 </section>
@@ -113,11 +23,12 @@ import SCIENCEENJOY from './Item/SCIENCEENJOY.vue'
 import Viseven from './Item/Viseven.vue'
 import Vintage from './Item/Vintage.vue'
 import Blog from './Item/Blog.vue'
+import PortfolioItem from './Item/PortfolioItem.vue'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'Portfolio',
-  components: { SmartOrange, Shop, SCIENCEENJOY, Viseven, Vintage, Blog },
+  components: { SmartOrange, Shop, SCIENCEENJOY, Viseven, Vintage, Blog, PortfolioItem },
   data () {
     return {
       componets: ['SmartOrange', 'Shop', 'SCIENCEENJOY', 'Viseven', 'Blog', 'Vintage']
@@ -129,6 +40,9 @@ export default {
     },
     activeComponents (state) {
       return state.portfolioActiveComponents
+    },
+    portfolioComponents (state) {
+      return state.portfolioComponents
     }
   }),
   methods: {

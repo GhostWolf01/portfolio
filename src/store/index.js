@@ -1,5 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import SmartOrange from '../assets/imgs/SmartOrange-img.jpg'
+import Shop from '../assets/imgs/Shop-img.jpg'
+import ScienceEnjoy from '../assets/imgs/ScienceEnjoy-img.jpg'
+import Viseven from '../assets/imgs/Viseven-img.jpg'
+import Blog from '../assets/imgs/Blog-img.jpg'
+import Vintage from '../assets/imgs/Vintage-img.jpg'
 
 Vue.use(Vuex)
 
@@ -69,6 +75,88 @@ export default new Vuex.Store({
       {
         name: 'Contacts',
         text: 'Контакты'
+      }
+    ],
+    portfolioComponents: [
+      {
+        id: 0,
+        name: 'SmartOrange',
+        text: `Афиша дома\n
+        Реализовано переключение слайдов с помощю slick,
+        preloader страница ждет полной загрузки контента, весь функционал реализована на jqery`,
+        imgSrc: SmartOrange,
+        imgAlt: 'Syte',
+        listArray: [
+          'Gulp',
+          'Jqery',
+          'Slick',
+          'Scss',
+          'BEM'
+        ]
+      },
+      {
+        id: 1,
+        name: 'Shop',
+        text: `Магазин на планшеты\n
+        Подгрузка даных товаров с сервера через асинхроный запрос`,
+        imgSrc: Shop,
+        imgAlt: 'Syte',
+        listArray: [
+          'Vue',
+          'Scss',
+          'BEM'
+        ]
+      },
+      {
+        id: 2,
+        name: 'ScienceEnjoy',
+        text: 'Афиша сайта дезайнеров',
+        imgSrc: ScienceEnjoy,
+        imgAlt: 'Syte',
+        listArray: [
+          'Bootstrap'
+        ]
+      },
+      {
+        id: 3,
+        name: 'Viseven',
+        text: 'Афиша фарм компании',
+        imgSrc: Viseven,
+        imgAlt: 'Syte',
+        listArray: [
+          'Vue',
+          'VueCli',
+          'Scss',
+          'BEM'
+        ]
+      },
+      {
+        id: 4,
+        name: 'Blog',
+        text: `Веб-блог\n
+        Просмотр фото реализовано через popup`,
+        imgSrc: Blog,
+        imgAlt: 'Syte',
+        listArray: [
+          'Vue',
+          'VueCli',
+          'Scss',
+          'BEM'
+        ]
+      },
+      {
+        id: 5,
+        name: 'Vintage',
+        text: `Форма потдержки\n
+        Отправка формы на сервер для дальнейшей обработки`,
+        imgSrc: Vintage,
+        imgAlt: 'Syte',
+        listArray: [
+          'Vue',
+          'VueCli',
+          'Scss',
+          'BEM'
+        ]
       }
     ]
   },
