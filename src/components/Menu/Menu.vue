@@ -2,13 +2,18 @@
 <nav class="menu" :class="{ 'menu--open' : showMenu, 'menu--close' : !showMenu}">
     <div class="menu__bg">
         <header class="menu__header">
-            <img class="menu__header__img" src="../assets/logo.jpg" alt="icon">
+            <img class="menu__header__img" src="../../assets/logo.jpg" alt="icon">
             <h1 class="menu__header__text">Гетманчук Илья<br>Портфолио</h1>
         </header>
         <div class="menu__btns">
-            <MenuContextBtn nameBtn="Обо мне" :menuBtns="null"></MenuContextBtn>
-            <MenuContextBtn nameBtn="Портфолио" :menuBtns="portfolioBtns"></MenuContextBtn>
-            <MenuContextBtn nameBtn="Контакты" :menuBtns="null"></MenuContextBtn>
+            <MenuContextBtn v-for="menuBtn in menuBtns"
+            :key="menuBtn.id"
+            :nameBtn="menuBtn.name"
+            :menuBtns="menuBtn.contextBtns"
+            :activeBtn="menuBtn.activeBtn"
+            :activeContext="menuBtn.activeContext"
+            :activeContextBtn="menuBtn.activeContextBtn"
+            ></MenuContextBtn>
         </div>
     </div>
 </nav>
@@ -16,6 +21,7 @@
 
 <script>
 import MenuContextBtn from './MenuContextBtn.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Menu',
@@ -27,11 +33,12 @@ export default {
   },
   data () {
     return {
-      portfolioBtns: [{ name: 'Smart Orange' }, { name: 'Shop' }, { name: 'SCIENCEENJOY' }, { name: 'Viseven' }, { name: 'Blog' }, { name: 'Vintage' }]
     }
   },
-  mounted () {
-    this.$children[0].activeContextBtn = true
+  computed: {
+    ...mapState([
+      'menuBtns'
+    ])
   }
 }
 </script>
@@ -58,7 +65,7 @@ $main_text: #ffffff;
 
 .menu{
     width: 25%;
-    background-image: url('../assets/imgs/sidebar.jpg');
+    background-image: url('../../assets/imgs/sidebar.jpg');
     background-repeat: no-repeat;
     background-color: rgba($color: #212120, $alpha: 0.8) ;
     background-size: 175% 100%;

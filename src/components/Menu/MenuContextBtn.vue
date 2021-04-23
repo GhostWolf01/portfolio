@@ -2,7 +2,7 @@
   <div class="menu__context-btn">
     <div class="menu__context-btn__header" @click="clickBtn" :class="{ 'menu__context-btn__header--active' : activeContextBtn}">
       <p>{{nameBtn}}</p>
-      <svg v-if="menuBtns" class="context-svg" :class="{'context-svg--active' : activeContext}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <svg v-if="activeContextSvg" class="context-svg" :class="{'context-svg--active' : activeContext}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M24 22h-24l12-20z"/>
       </svg>
     </div>
@@ -11,78 +11,56 @@
     :key="MenuBtn.id"
     :nameBtn="MenuBtn.name"
     :activeContextMenu="activeContext"
+    :activeBtn="MenuBtn.activeBtn"
+    @click-btn="clickContextBtn"
     />
   </div>
 </template>
 
 <script>
 import MenuBtn from './MenuBtn.vue'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'MenuContextBtn',
   props: {
     nameBtn: String,
-    menuBtns: Array
+    menuBtns: Array,
+    activeBtn: Boolean,
+    activeContext: Boolean,
+    activeContextBtn: Boolean
   },
   components: {
     MenuBtn
   },
   data () {
     return {
-      activeBtn: false,
-      activeContext: false,
-      activeContextBtn: false
+    }
+  },
+  computed: {
+    activeContextSvg () {
+      if (this.menuBtns.length !== 0) {
+        return true
+      }
+      return false
     }
   },
   methods: {
+    ...mapMutations([
+      'ACTIVE_MENU_BTNS',
+      'SHOW_CONTEXT_MENU_BTNS',
+      'ACTIVE_CONTEXT_BTN'
+    ]),
     clickBtn () {
       if (this.activeBtn === false) {
-        for (const contxMenu of this.$parent.$children) {
-          if (contxMenu.$children.length !== 0) {
-            for (const menuBtn of contxMenu.$children) {
-              menuBtn.activeBtn = false
-            }
-          }
-          contxMenu.activeBtn = false
-          contxMenu.activeContext = false
-          contxMenu.activeContextBtn = false
-        }
-        this.activeBtn = true
-        this.activeContext = true
-        this.activeContextBtn = true
-        for (let i = 0; i < this.$parent.$children.length; i++) {
-          if (this._uid === this.$parent.$children[i]._uid) {
-            this.appActiveComponent(i)
-            break
-          }
-        }
+        this.ACTIVE_MENU_BTNS(this.nameBtn)
       } else {
-        this.activeContext = false
-        this.activeBtn = false
-        if (this.$children.length !== 0) {
-          for (const menuBtn of this.$children) {
-            menuBtn.activeBtn = false
-          }
-        }
-        this.portfolioActiveCompenents(false)
+        this.SHOW_CONTEXT_MENU_BTNS(this.nameBtn)
       }
     },
-    appActiveComponent (i) {
-      this.$root.$emit('appActiveComponent', i)
-    },
-    portfolioActiveCompenents (active) {
-      this.$root.$emit('portfolioActiveCompenents', active)
+    clickContextBtn (nameContextBtn) {
+      this.ACTIVE_CONTEXT_BTN({ nameBtn: this.nameBtn, nameContextBtn: nameContextBtn })
     }
-  },
-  mounted () {
-    this.$root.$on('activeMenuPortfolio', (n) => {
-      if (this.nameBtn === 'Портфолио') {
-        this.activeBtn = true
-        this.activeContext = true
-        this.activeContextBtn = true
-        this.$children[n].activeBtn = true
-      }
-    })
   }
 }
 </script>

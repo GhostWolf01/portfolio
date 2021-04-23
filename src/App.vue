@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <Content :nameTitle="componts[activeComponent]"></Content>
+    <Content :nameTitle="componets[activeComponent]"></Content>
     <Menu :showMenu="showMenu"></Menu>
   </div>
 </template>
 
 <script>
-import Menu from './components/Menu.vue'
+import Menu from './components/Menu/Menu.vue'
 import Content from './components/Сontent.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
@@ -16,29 +17,19 @@ export default {
   },
   data () {
     return {
-      showMenu: true,
-      activeComponent: 0,
-      componts: [
-        {
-          name: 'About',
-          text: 'Обо мне'
-        },
-        {
-          name: 'Portfolio',
-          text: 'Портфолио'
-        },
-        {
-          name: 'Contacts',
-          text: 'Контакты'
-        }
-      ]
     }
   },
-  mounted () {
-    this.$root.$on('appActiveComponent', (i) => {
-      this.activeComponent = i
-    })
-  }
+  computed: mapState({
+    activeComponent (state) {
+      return state.appActiveComponent
+    },
+    showMenu (state) {
+      return state.showMenu
+    },
+    componets (state) {
+      return state.componets
+    }
+  })
 }
 </script>
 

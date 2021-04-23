@@ -165,9 +165,7 @@ const app = new Vue({
     gods: {}
   },
   beforeDestroy: function () {
-    console.log(this)
     document.cookie = 'basket_cookie = ' + JSON.stringify(this.basket) + '; max-age=' + (3600 * 24 * 7)
-    console.log(document.cookie)
   },
   mounted: function () {
     const arrayCookies = document.cookie.split(';')
@@ -175,7 +173,7 @@ const app = new Vue({
       const arrayCookie = arrayCookies[i].split('=')
       if (arrayCookie[0] == 'basket_cookie') {
         if (arrayCookie[1].basketSumm != 0) {
-          this.basket =  JSON.parse(arrayCookie[1])
+          this.basket = JSON.parse(arrayCookie[1])
         }
       }
     }

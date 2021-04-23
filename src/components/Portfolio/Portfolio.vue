@@ -1,8 +1,8 @@
 <template>
 <section class="portfolio">
-    <div class="portfolio__imgs" v-show="!activeCompenents">
+    <div class="portfolio__imgs" v-show="!activeComponents">
       <div class="portfolio__block">
-        <img class="portfolio__img" src="../assets/imgs/SmartOrange-img.jpg" alt="Syte">
+        <img class="portfolio__img" src="../../assets/imgs/SmartOrange-img.jpg" alt="Syte">
         <div class="portfolio__block-info">
           <h3 class="portfolio__block-header">SmartOrange</h3>
           <div class="portfolio__block-text-list">
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="portfolio__block">
-        <img class="portfolio__img" src="../assets/imgs/Shop-img.jpg" alt="Syte">
+        <img class="portfolio__img" src="../../assets/imgs/Shop-img.jpg" alt="Syte">
         <div class="portfolio__block-info">
           <h3 class="portfolio__block-header">Shop</h3>
           <div class="portfolio__block-text-list">
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="portfolio__block">
-        <img class="portfolio__img" src="../assets/imgs/ScienceEnjoy-img.jpg" alt="Syte">
+        <img class="portfolio__img" src="../../assets/imgs/ScienceEnjoy-img.jpg" alt="Syte">
         <div class="portfolio__block-info">
           <h3 class="portfolio__block-header">ScienceEnjoy</h3>
           <div class="portfolio__block-text-list">
@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="portfolio__block">
-        <img class="portfolio__img" src="../assets/imgs/Viseven-img.jpg" alt="Syte">
+        <img class="portfolio__img" src="../../assets/imgs/Viseven-img.jpg" alt="Syte">
         <div class="portfolio__block-info">
           <h3 class="portfolio__block-header">Viseven</h3>
           <div class="portfolio__block-text-list">
@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="portfolio__block">
-        <img class="portfolio__img" src="../assets/imgs/Blog-img.jpg" alt="Syte">
+        <img class="portfolio__img" src="../../assets/imgs/Blog-img.jpg" alt="Syte">
         <div class="portfolio__block-info">
           <h3 class="portfolio__block-header">Blog</h3>
           <div class="portfolio__block-text-list">
@@ -85,7 +85,7 @@
         </div>
       </div>
       <div class="portfolio__block">
-        <img class="portfolio__img" src="../assets/imgs/Vintage-img.jpg" alt="Syte">
+        <img class="portfolio__img" src="../../assets/imgs/Vintage-img.jpg" alt="Syte">
         <div class="portfolio__block-info">
           <h3 class="portfolio__block-header">Vintage</h3>
           <div class="portfolio__block-text-list">
@@ -102,45 +102,46 @@
         </div>
       </div>
     </div>
-    <component :is='componets[activeComponent]' v-show="activeCompenents"></component>
+    <component :is='componets[activeComponent]' v-show="activeComponents"></component>
 </section>
 </template>
 
 <script>
-import SmartOrange from './SmartOrange.vue'
-import Shop from './Shop.vue'
-import SCIENCEENJOY from './SCIENCEENJOY.vue'
-import Viseven from './Viseven.vue'
-import Vintage from './Vintage.vue'
-import Blog from './Blog.vue'
+import SmartOrange from './Item/SmartOrange.vue'
+import Shop from './Item/Shop.vue'
+import SCIENCEENJOY from './Item/SCIENCEENJOY.vue'
+import Viseven from './Item/Viseven.vue'
+import Vintage from './Item/Vintage.vue'
+import Blog from './Item/Blog.vue'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'Portfolio',
   components: { SmartOrange, Shop, SCIENCEENJOY, Viseven, Vintage, Blog },
   data () {
     return {
-      activeComponent: 0,
-      componets: ['SmartOrange', 'Shop', 'SCIENCEENJOY', 'Viseven', 'Blog', 'Vintage'],
-      activeCompenents: false
+      componets: ['SmartOrange', 'Shop', 'SCIENCEENJOY', 'Viseven', 'Blog', 'Vintage']
     }
   },
-  methods: {
-    open (n) {
-      this.activeComponent = n
-      this.activeCompenents = true
-      this.activeMenuPortfolio(n)
+  computed: mapState({
+    activeComponent (state) {
+      return state.portfolioActiveComponent
     },
-    activeMenuPortfolio (n) {
-      this.$root.$emit('activeMenuPortfolio', n)
+    activeComponents (state) {
+      return state.portfolioActiveComponents
     }
-  },
-  mounted () {
-    this.$root.$on('portfolioActiveCompenents', (active) => {
-      this.activeCompenents = active
-    })
-    this.$root.$on('portfolioActiveComponent', (i) => {
-      this.activeComponent = i
-    })
+  }),
+  methods: {
+    ...mapMutations([
+      'SET_PORTFOLIO_ACTIVE_COMPONENT',
+      'SET_PORTFOLIO_ACTIVE_COMPONENTS',
+      'ACTIVE_MENU_PORTFOLIO'
+    ]),
+    open (n) {
+      this.SET_PORTFOLIO_ACTIVE_COMPONENT(n)
+      this.SET_PORTFOLIO_ACTIVE_COMPONENTS(true)
+      this.ACTIVE_MENU_PORTFOLIO({ name: 'Портфолио', index: n })
+    }
   }
 }
 </script>

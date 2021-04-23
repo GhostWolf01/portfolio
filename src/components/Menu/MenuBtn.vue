@@ -9,29 +9,16 @@ export default {
   name: 'MenuBtn',
   props: {
     nameBtn: String,
-    activeContextMenu: Boolean
+    activeContextMenu: Boolean,
+    activeBtn: Boolean
   },
   data () {
     return {
-      activeBtn: false
     }
   },
   methods: {
     clickBtn () {
-      for (let i = 0; i < this.$parent.$children.length; i++) {
-        this.$parent.$children[i].activeBtn = false
-        if (this._uid === this.$parent.$children[i]._uid) {
-          this.portfolioActiveComponent(i)
-          this.portfolioActiveCompenents(true)
-        }
-      }
-      this.activeBtn = !this.activeBtn
-    },
-    portfolioActiveCompenents (active) {
-      this.$root.$emit('portfolioActiveCompenents', active)
-    },
-    portfolioActiveComponent (i) {
-      this.$root.$emit('portfolioActiveComponent', i)
+      this.$emit('click-btn', this.nameBtn)
     }
   }
 }
