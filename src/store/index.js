@@ -174,6 +174,7 @@ export default new Vuex.Store({
       state.portfolioActiveComponent = i
     },
     ACTIVE_MENU_BTNS (state, nameBtn) {
+      state.portfolioActiveComponents = false
       for (let i = 0; i < state.menuBtns.length; i++) {
         state.menuBtns[i].activeBtn = false
         state.menuBtns[i].activeContext = false
