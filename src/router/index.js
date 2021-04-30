@@ -9,6 +9,7 @@ import NotFound from '../pages/NotFound404.vue'
 
 export default new VueRouter({
   mode: 'history',
+  base: '/Portfolio/',
   routes: [
     {
       path: '/',
