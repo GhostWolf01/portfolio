@@ -9,15 +9,13 @@ export default {
   name: 'MenuBtn',
   props: {
     nameBtn: String,
+    nameUrl: String,
     activeContextMenu: Boolean,
     activeBtn: Boolean
   },
-  data () {
-    return {
-    }
-  },
   methods: {
     clickBtn () {
+      this.$router.push({ name: 'PortfolioItem', params: { name: this.nameUrl } })
       this.$emit('click-btn', this.nameBtn)
     }
   }

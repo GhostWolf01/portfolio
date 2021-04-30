@@ -1,9 +1,9 @@
 <template>
-  <article class="content">
+  <section class="content">
     <div class="content-bg">
-      <header class="content__header">
-          <h2 class="content__header__text">{{nameTitle.text}}</h2>
-          <div class="content__header__btn-menu" @click="CLICK_SHOW_MENU">
+      <div class="content__header">
+          <h2 class="content__header__text">{{nameTitle}}</h2>
+          <div class="content__header__btn-menu" @click="clickShowMenu">
               <svg class="content__header__btn-svg" v-if="!activeMenu" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
                   <g>
                       <g id="_x33__32_">
@@ -31,35 +31,39 @@
                 </g>
               </svg>
           </div>
-      </header>
-      <component :is='nameTitle.name'></component>
+      </div>
+      <router-view></router-view>
     </div>
-  </article>
+  </section>
 </template>
 
 <script>
-import About from './About.vue'
-import Portfolio from './Portfolio/Portfolio.vue'
-import Contacts from './Contacts.vue'
-import { mapMutations } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Content',
-  components: {
-    About, Portfolio, Contacts
-  },
-  props: {
-    nameTitle: Object
-  },
   data () {
     return {
       activeMenu: true
     }
   },
+  computed: {
+    ...mapGetters({
+      getNameTitle: 'menu/getNameTitle'
+    }),
+    nameTitle () {
+      return this.getNameTitle
+    }
+  },
   methods: {
-    ...mapMutations([
-      'CLICK_SHOW_MENU'
-    ])
+    ...mapActions({
+      clickShowMenu: 'menu/clickShowMenu'
+    })
+  },
+  created () {
+    if (this.$route.path === '/') {
+      this.$router.push({ name: 'about' })
+    }
   }
 }
 </script>
@@ -82,50 +86,50 @@ $main_text: #ffffff;
       flex-direction: column;
     }
     &__header{
-        padding: 10px 5px;
-        background-color: rgba($color: #66615b, $alpha: 0.6);
-        background-size: 100%;
-        background-position: 50%;
-        background-repeat: no-repeat;
-        display: flex;
-        width: 100%;
-        justify-content: start;
-        align-items: center;
-        &__btn{
-            &-menu{
-                height: 40px;
-                width: 40px;
-                border-radius: 50%;
-                background-color: rgba($color: #66615b, $alpha: 0.4);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-shrink: 0;
-                cursor: pointer;
-                transition: all 0.3s linear;
-                &:hover{
-                  background-color: rgba($color: #66615b, $alpha: 0.8);
-                }
-            }
-            &-svg{
-              height: 26px;
-              width: 26px;
-              filter: invert(100%);
-            }
-        }
-        &__text{
-          font-family: 'Roboto';
-          font-weight: 400;
-          margin: 0;
-          color: $main_text;
-          font-size: 34px;
-          line-height: 34px;
-          width: 100%;
-          @media(max-width: 480px){
-            font-size: 22px;
-            line-height: 22px;
+      padding: 10px 5px;
+      background-color: rgba($color: #66615b, $alpha: 0.6);
+      background-size: 100%;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      &__btn{
+          &-menu{
+              height: 40px;
+              width: 40px;
+              border-radius: 50%;
+              background-color: rgba($color: #66615b, $alpha: 0.4);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-shrink: 0;
+              cursor: pointer;
+              transition: all 0.3s linear;
+              &:hover{
+                background-color: rgba($color: #66615b, $alpha: 0.8);
+              }
           }
+          &-svg{
+            height: 26px;
+            width: 26px;
+            filter: invert(100%);
+          }
+      }
+      &__text{
+        font-family: 'Roboto';
+        font-weight: 400;
+        margin: 0;
+        color: $main_text;
+        font-size: 34px;
+        line-height: 34px;
+        width: 100%;
+        @media(max-width: 480px){
+          font-size: 22px;
+          line-height: 22px;
         }
+      }
     }
 }
 </style>

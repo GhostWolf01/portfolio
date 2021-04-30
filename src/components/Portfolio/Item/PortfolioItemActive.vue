@@ -3,10 +3,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'PortfolioItemActive',
-  props: {
-    srcHtml: String
+  computed: {
+    ...mapGetters({
+      getSrcHtmlName: 'portfolio/getSrcHtmlName'
+    }),
+    srcHtml () {
+      return this.getSrcHtmlName(this.$route.params.name)
+    }
   }
 }
 </script>

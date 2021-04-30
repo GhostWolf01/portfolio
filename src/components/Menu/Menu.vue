@@ -9,11 +9,11 @@
             <MenuContextBtn v-for="menuBtn in menuBtns"
             :key="menuBtn.id"
             :nameBtn="menuBtn.name"
+            :nameUrl="menuBtn.nameUrl"
             :menuBtns="menuBtn.contextBtns"
             :activeBtn="menuBtn.activeBtn"
             :activeContext="menuBtn.activeContext"
-            :activeContextBtn="menuBtn.activeContextBtn"
-            ></MenuContextBtn>
+            :activeContextBtn="menuBtn.activeContextBtn"/>
         </div>
     </div>
 </nav>
@@ -21,24 +21,24 @@
 
 <script>
 import MenuContextBtn from './MenuContextBtn.vue'
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Menu',
   components: {
     MenuContextBtn
   },
-  props: {
-    showMenu: Boolean
-  },
-  data () {
-    return {
-    }
-  },
   computed: {
-    ...mapState([
-      'menuBtns'
-    ])
+    ...mapGetters({
+      getMenuBtns: 'menu/getMenuBtns',
+      getShowMenu: 'menu/getShowMenu'
+    }),
+    menuBtns () {
+      return this.getMenuBtns
+    },
+    showMenu () {
+      return this.getShowMenu
+    }
   }
 }
 </script>
@@ -79,7 +79,7 @@ $main_text: #ffffff;
         background-color: rgba($color: #212120, $alpha: 0.8) ;
         display: flex;
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center;
         padding: 20px 10px;
     }
@@ -118,7 +118,7 @@ $main_text: #ffffff;
     &__btns{
         display: flex;
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
         overflow: auto;
         align-items: center;
         padding: 10px 5px 10px 0px;

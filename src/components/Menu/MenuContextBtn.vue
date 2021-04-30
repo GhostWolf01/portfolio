@@ -6,10 +6,10 @@
         <path d="M24 22h-24l12-20z"/>
       </svg>
     </div>
-    <MenuBtn
-    v-for="MenuBtn in menuBtns"
+    <MenuBtn v-for="MenuBtn in menuBtns"
     :key="MenuBtn.id"
     :nameBtn="MenuBtn.name"
+    :nameUrl="MenuBtn.nameUrl"
     :activeContextMenu="activeContext"
     :activeBtn="MenuBtn.activeBtn"
     @click-btn="clickContextBtn"
@@ -19,12 +19,13 @@
 
 <script>
 import MenuBtn from './MenuBtn.vue'
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'MenuContextBtn',
   props: {
     nameBtn: String,
+    nameUrl: String,
     menuBtns: Array,
     activeBtn: Boolean,
     activeContext: Boolean,
@@ -32,10 +33,6 @@ export default {
   },
   components: {
     MenuBtn
-  },
-  data () {
-    return {
-    }
   },
   computed: {
     activeContextSvg () {
@@ -46,20 +43,21 @@ export default {
     }
   },
   methods: {
-    ...mapMutations([
-      'ACTIVE_MENU_BTNS',
-      'SHOW_CONTEXT_MENU_BTNS',
-      'ACTIVE_CONTEXT_BTN'
-    ]),
+    ...mapActions({
+      activeMenuBtns: 'menu/activeMenuBtns',
+      showContextMenuBtns: 'menu/showContextMenuBtns',
+      activeCotxBtn: 'menu/activeContextBtn'
+    }),
     clickBtn () {
       if (this.activeBtn === false) {
-        this.ACTIVE_MENU_BTNS(this.nameBtn)
+        this.$router.push({ name: this.nameUrl })
+        this.activeMenuBtns(this.nameBtn)
       } else {
-        this.SHOW_CONTEXT_MENU_BTNS(this.nameBtn)
+        this.showContextMenuBtns(this.nameBtn)
       }
     },
     clickContextBtn (nameContextBtn) {
-      this.ACTIVE_CONTEXT_BTN({ nameBtn: this.nameBtn, nameContextBtn: nameContextBtn })
+      this.activeCotxBtn({ nameBtn: this.nameBtn, nameContextBtn: nameContextBtn })
     }
   }
 }

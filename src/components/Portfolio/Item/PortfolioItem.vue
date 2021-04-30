@@ -12,7 +12,10 @@
             </ul>
             <p class="portfolio__block-text">{{text}}</p>
           </div>
-          <button class="portfolio__block-btn" @click="open()">Посмотреть</button>
+          <button class="portfolio__block-btn"
+            @click="open">
+            Посмотреть
+          </button>
         </div>
       </div>
 </template>
@@ -25,11 +28,13 @@ export default {
     imgSrc: String,
     imgAlt: String,
     nameItem: String,
+    nameUrl: String,
     listArray: Array,
     text: String
   },
   methods: {
     open () {
+      this.$router.push({ name: 'PortfolioItem', params: { name: this.nameUrl } })
       this.$emit('open', this.id)
     }
   }

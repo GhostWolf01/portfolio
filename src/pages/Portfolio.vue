@@ -1,60 +1,55 @@
 <template>
-<section class="portfolio">
-    <div class="portfolio__imgs" v-show="!activeComponents">
-      <PortfolioItem v-for="portfolioComponent in portfolioComponents"
-      :key=portfolioComponent.id
-      :id=portfolioComponent.id
-      :nameItem=portfolioComponent.name
-      :text=portfolioComponent.text
-      :imgSrc=portfolioComponent.imgSrc
-      :imgAlt=portfolioComponent.imgAlt
-      :listArray=portfolioComponent.listArray
-      @open=open
-      />
-    </div>
-    <component :is='componets[activeComponent]' v-show="activeComponents"></component>
-</section>
+  <section class="portfolio">
+      <div class="portfolio__imgs" v-show="!activeComponents">
+        <PortfolioItem v-for="portfolioComponent in portfolioComponents"
+        :key=portfolioComponent.id
+        :id=portfolioComponent.id
+        :nameItem=portfolioComponent.name
+        :nameUrl=portfolioComponent.nameUrl
+        :text=portfolioComponent.text
+        :imgSrc=portfolioComponent.imgSrc
+        :imgAlt=portfolioComponent.imgAlt
+        :listArray=portfolioComponent.listArray
+        @open=open
+        />
+      </div>
+      <router-view v-show="activeComponents"></router-view>
+  </section>
 </template>
 
 <script>
-import SmartOrange from './Item/SmartOrange.vue'
-import Shop from './Item/Shop.vue'
-import SCIENCEENJOY from './Item/SCIENCEENJOY.vue'
-import Viseven from './Item/Viseven.vue'
-import Vintage from './Item/Vintage.vue'
-import Blog from './Item/Blog.vue'
-import PortfolioItem from './Item/PortfolioItem.vue'
-import { mapState, mapMutations } from 'vuex'
+import PortfolioItem from '../components/Portfolio/Item/PortfolioItem.vue'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Portfolio',
-  components: { SmartOrange, Shop, SCIENCEENJOY, Viseven, Vintage, Blog, PortfolioItem },
-  data () {
-    return {
-      componets: ['SmartOrange', 'Shop', 'SCIENCEENJOY', 'Viseven', 'Blog', 'Vintage']
+  components: { PortfolioItem },
+  computed: {
+    ...mapGetters({
+      getPortfolioActiveComponents: 'portfolio/getPortfolioActiveComponents',
+      getPortfolioActiveComponent: 'portfolio/getPortfolioActiveComponent',
+      getPortfolioComponents: 'portfolio/getPortfolioComponents'
+    }),
+    activeComponent () {
+      return this.getPortfolioActiveComponent
+    },
+    activeComponents () {
+      return this.getPortfolioActiveComponents
+    },
+    portfolioComponents () {
+      return this.getPortfolioComponents
     }
   },
-  computed: mapState({
-    activeComponent (state) {
-      return state.portfolioActiveComponent
-    },
-    activeComponents (state) {
-      return state.portfolioActiveComponents
-    },
-    portfolioComponents (state) {
-      return state.portfolioComponents
-    }
-  }),
   methods: {
-    ...mapMutations([
-      'SET_PORTFOLIO_ACTIVE_COMPONENT',
-      'SET_PORTFOLIO_ACTIVE_COMPONENTS',
-      'ACTIVE_MENU_PORTFOLIO'
-    ]),
+    ...mapActions({
+      setPortfolioActiveComponents: 'portfolio/setPortfolioActiveComponents',
+      setPortfolioActiveComponent: 'portfolio/setPortfolioActiveComponent',
+      activeMenuPortfolio: 'menu/activeMenuPortfolio'
+    }),
     open (n) {
-      this.SET_PORTFOLIO_ACTIVE_COMPONENT(n)
-      this.SET_PORTFOLIO_ACTIVE_COMPONENTS(true)
-      this.ACTIVE_MENU_PORTFOLIO({ name: 'Портфолио', index: n })
+      this.setPortfolioActiveComponents(n)
+      this.setPortfolioActiveComponent(true)
+      this.activeMenuPortfolio({ name: 'Портфолио', index: n })
     }
   }
 }

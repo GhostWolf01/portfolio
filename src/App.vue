@@ -1,40 +1,17 @@
 <template>
   <div id="app">
-    <Content :nameTitle="componets[activeComponent]"></Content>
-    <Menu :showMenu="showMenu"></Menu>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Menu from './components/Menu/Menu.vue'
-import Content from './components/Сontent.vue'
-import { mapState } from 'vuex'
 
 export default {
-  name: 'App',
-  components: {
-    Menu, Content
-  },
-  data () {
-    return {
-    }
-  },
-  computed: mapState({
-    activeComponent (state) {
-      return state.appActiveComponent
-    },
-    showMenu (state) {
-      return state.showMenu
-    },
-    componets (state) {
-      return state.componets
-    }
-  })
+  name: 'App'
 }
 </script>
 
 <style lang="scss">
-@import url('./assets/fonts.scss');
 
 html, body {
   scrollbar-color: rgba(#66615b, 0.8) rgba(#ffffff, 0);
@@ -56,15 +33,4 @@ html, body {
   scrollbar-width: thin;
 }
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  display: flex;
-  overflow-x: hidden;
-  justify-content: center;
-  height: 100vh;
-}
 </style>
