@@ -15,7 +15,7 @@ export default {
         id: 0,
         name: 'SmartOrange',
         nameUrl: 'smart_orange',
-        srcHtml: '/projects/Smart_orange/smart_orange.html',
+        srcHtml: '/Portfolio/projects/Smart_orange/index.html',
         text: `Афиша дома\n
               Реализовано переключение слайдов с помощю slick,
               preloader страница ждет полной загрузки контента, весь функционал реализована на jqery`,
@@ -33,7 +33,7 @@ export default {
         id: 1,
         name: 'Shop',
         nameUrl: 'shop',
-        srcHtml: '/projects/Shop_vue/index.html',
+        srcHtml: '/Portfolio/projects/Shop_vue/index.html',
         text: `Магазин на планшеты\n
               Подгрузка даных товаров с сервера через асинхроный запрос`,
         imgSrc: ShopImg,
@@ -48,7 +48,7 @@ export default {
         id: 2,
         name: 'ScienceEnjoy',
         nameUrl: 'scienceenjoy',
-        srcHtml: '/projects/SCIENCEENJOY/index.html',
+        srcHtml: '/Portfolio/projects/SCIENCEENJOY/index.html',
         text: 'Афиша сайта дезайнеров',
         imgSrc: ScienceEnjoyImg,
         imgAlt: 'Syte',
@@ -60,7 +60,7 @@ export default {
         id: 3,
         name: 'Viseven',
         nameUrl: 'viseven',
-        srcHtml: '/projects/Viseven/index.html',
+        srcHtml: '/Portfolio/projects/Viseven/index.html',
         text: 'Афиша фарм компании',
         imgSrc: VisevenImg,
         imgAlt: 'Syte',
@@ -75,7 +75,7 @@ export default {
         id: 4,
         name: 'Blog',
         nameUrl: 'blog',
-        srcHtml: '/projects/Blog/index.html',
+        srcHtml: '/Portfolio/projects/Blog/index.html',
         text: `Веб-блог\n
               Просмотр фото реализовано через popup`,
         imgSrc: BlogImg,
@@ -91,7 +91,7 @@ export default {
         id: 5,
         name: 'Vintage',
         nameUrl: 'vintage',
-        srcHtml: '/projects/vintage/index.html',
+        srcHtml: '/Portfolio/projects/vintage/index.html',
         text: `Форма потдержки\n
               Отправка формы на сервер для дальнейшей обработки`,
         imgSrc: VintageImg,

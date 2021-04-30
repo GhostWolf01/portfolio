@@ -119,7 +119,7 @@ export default {
     },
     ACTIVE_MENU_PORTFOLIO (state, payload) {
       for (const menuBtn of state.menuBtns) {
-        if (menuBtn.nameBtn === payload.name) {
+        if (menuBtn.name === payload.name) {
           menuBtn.activeBtn = true
           menuBtn.activeContext = true
           menuBtn.activeContextBtn = true
@@ -161,8 +161,9 @@ export default {
       commit('SHOW_CONTEXT_MENU_BTNS', nameBtn)
       dispatch('portfolio/setPortfolioActiveComponents', false, { root: true })
     },
-    activeMenuPortfolio ({ commit }, payload) {
+    activeMenuPortfolio ({ dispatch, commit }, payload) {
       commit('ACTIVE_MENU_PORTFOLIO', payload)
+      dispatch('portfolio/setPortfolioActiveComponents', true, { root: true })
     }
   }
 }

@@ -5,7 +5,7 @@ import About from '../pages/About.vue'
 import Portfolio from '../pages/Portfolio.vue'
 import Contacts from '../pages/Contacts.vue'
 import PortfolioItemActive from '../components/Portfolio/Item/PortfolioItemActive.vue'
-import NotFound from '../pages/NotFound404.vue'
+import NotFound from '../pages/404.vue'
 
 export default new VueRouter({
   mode: 'history',

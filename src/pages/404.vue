@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'NotFound404',
+  name: '404',
   methods: {
     clickBtn () {
       this.$router.push({ name: 'content' })
