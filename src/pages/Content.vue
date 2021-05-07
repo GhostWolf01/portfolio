@@ -57,12 +57,34 @@ export default {
   },
   methods: {
     ...mapActions({
-      clickShowMenu: 'menu/clickShowMenu'
+      clickShowMenu: 'menu/clickShowMenu',
+      activeMenuBtns: 'menu/activeMenuBtns'
     })
   },
   created () {
-    if (this.$route.path === '/') {
+    if (this.$route.name === 'content') {
       this.$router.push({ name: 'about' })
+    }
+  },
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      const arrPath = to.path.split('/')
+      vm.activeMenuBtns({
+        nameUrl: arrPath[1],
+        nameUrlContextBtn: arrPath[2]
+      })
+    })
+  },
+  beforeRouteUpdate (to, from, next) {
+    const arrPath = to.path.split('/')
+    this.activeMenuBtns({
+      nameUrl: arrPath[1],
+      nameUrlContextBtn: arrPath[2]
+    })
+    if (to.name === 'content') {
+      next({ name: from.name })
+    } else {
+      next()
     }
   }
 }

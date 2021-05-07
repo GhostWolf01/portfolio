@@ -1,11 +1,11 @@
 import VueRouter from 'vue-router'
-import Main from '../pages/Main.vue'
 import Content from '../pages/Content.vue'
 import About from '../pages/About.vue'
 import Portfolio from '../pages/Portfolio.vue'
 import Contacts from '../pages/Contacts.vue'
 import PortfolioItemActive from '../components/Portfolio/Item/PortfolioItemActive.vue'
 import NotFound from '../pages/404.vue'
+import Main from '../pages/Main.vue'
 
 export default new VueRouter({
   mode: 'history',
@@ -13,7 +13,7 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'main',
+      name: 'Main',
       component: Main,
       children: [
         {

@@ -9,7 +9,7 @@ export default {
         nameUrl: 'about',
         activeBtn: false,
         activeContext: false,
-        activeContextBtn: true,
+        activeContextBtn: false,
         contextBtns: []
       },
       {
@@ -82,30 +82,12 @@ export default {
     CLICK_SHOW_MENU (state) {
       state.showMenu = !state.showMenu
     },
-    ACTIVE_MENU_BTNS (state, nameBtn) {
-      for (let i = 0; i < state.menuBtns.length; i++) {
-        state.menuBtns[i].activeBtn = false
-        state.menuBtns[i].activeContext = false
-        state.menuBtns[i].activeContextBtn = false
-        if (state.menuBtns[i].contextBtns.length !== 0) {
-          for (const contextBtn of state.menuBtns[i].contextBtns) {
-            contextBtn.activeBtn = false
-          }
-        }
-        if (state.menuBtns[i].name === nameBtn) {
-          state.menuBtns[i].activeBtn = true
-          state.menuBtns[i].activeContext = true
-          state.menuBtns[i].activeContextBtn = true
-          state.appActiveComponent = i
-        }
-      }
+    ACTIVE_MENU_BTNS (state, menuBtns) {
+      state.menuBtns = menuBtns
     },
-    ACTIVE_CONTEXT_BTN (state, payload) {
-      state.menuBtns = payload
-    },
-    SHOW_CONTEXT_MENU_BTNS (state, nameBtn) {
+    SHOW_CONTEXT_MENU_BTNS (state, nameUrl) {
       for (const menuBtn of state.menuBtns) {
-        if (menuBtn.name === nameBtn) {
+        if (menuBtn.nameUrl === nameUrl) {
           menuBtn.activeContext = false
           menuBtn.activeBtn = false
           if (menuBtn.contextBtns.length !== 0) {
@@ -116,54 +98,40 @@ export default {
           break
         }
       }
-    },
-    ACTIVE_MENU_PORTFOLIO (state, payload) {
-      for (const menuBtn of state.menuBtns) {
-        if (menuBtn.name === payload.name) {
-          menuBtn.activeBtn = true
-          menuBtn.activeContext = true
-          menuBtn.activeContextBtn = true
-          menuBtn.contextBtns[payload.index].activeBtn = true
-          break
-        }
-      }
     }
   },
   actions: {
-    setAppActiveComponent ({ commit }, i) {
-      commit('SET_APP_ACTIVE_COMPONENT', i)
-    },
     clickShowMenu ({ commit }) {
       commit('CLICK_SHOW_MENU')
     },
-    activeMenuBtns ({ dispatch, commit }, nameBtn) {
+    activeMenuBtns ({ dispatch, getters, commit }, activeMenuBtn) {
       dispatch('portfolio/setPortfolioActiveComponents', false, { root: true })
-      commit('ACTIVE_MENU_BTNS', nameBtn)
-    },
-    activeContextBtn ({ dispatch, commit, getters }, payload) {
       const menuBtns = getters.getMenuBtns
-      for (const menuBtn of menuBtns) {
-        if (menuBtn.name === payload.nameBtn) {
-          for (let i = 0; i < menuBtn.contextBtns.length; i++) {
-            menuBtn.contextBtns[i].activeBtn = false
-            if (menuBtn.contextBtns[i].name === payload.nameContextBtn) {
-              menuBtn.contextBtns[i].activeBtn = !menuBtn.contextBtns[i].activeBtn
-              dispatch('portfolio/setPortfolioActiveComponent', i, { root: true })
+      for (let i = 0; i < menuBtns.length; i++) {
+        menuBtns[i].activeBtn = false
+        menuBtns[i].activeContext = false
+        menuBtns[i].activeContextBtn = false
+        if (menuBtns[i].contextBtns.length !== 0) {
+          for (const contextBtn of menuBtns[i].contextBtns) {
+            contextBtn.activeBtn = false
+            if (contextBtn.nameUrl === activeMenuBtn.nameUrlContextBtn) {
+              contextBtn.activeBtn = true
               dispatch('portfolio/setPortfolioActiveComponents', true, { root: true })
             }
           }
-          break
+        }
+        if (menuBtns[i].nameUrl === activeMenuBtn.nameUrl) {
+          menuBtns[i].activeBtn = true
+          menuBtns[i].activeContext = true
+          menuBtns[i].activeContextBtn = true
+          commit('SET_APP_ACTIVE_COMPONENT', i)
         }
       }
-      commit('ACTIVE_CONTEXT_BTN', menuBtns)
+      commit('ACTIVE_MENU_BTNS', menuBtns)
     },
-    showContextMenuBtns ({ dispatch, commit }, nameBtn) {
-      commit('SHOW_CONTEXT_MENU_BTNS', nameBtn)
+    showContextMenuBtns ({ dispatch, commit }, nameUrl) {
+      commit('SHOW_CONTEXT_MENU_BTNS', nameUrl)
       dispatch('portfolio/setPortfolioActiveComponents', false, { root: true })
-    },
-    activeMenuPortfolio ({ dispatch, commit }, payload) {
-      commit('ACTIVE_MENU_PORTFOLIO', payload)
-      dispatch('portfolio/setPortfolioActiveComponents', true, { root: true })
     }
   }
 }

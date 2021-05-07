@@ -12,7 +12,6 @@
     :nameUrl="MenuBtn.nameUrl"
     :activeContextMenu="activeContext"
     :activeBtn="MenuBtn.activeBtn"
-    @click-btn="clickContextBtn"
     />
   </div>
 </template>
@@ -44,20 +43,15 @@ export default {
   },
   methods: {
     ...mapActions({
-      activeMenuBtns: 'menu/activeMenuBtns',
-      showContextMenuBtns: 'menu/showContextMenuBtns',
-      activeCotxBtn: 'menu/activeContextBtn'
+      showContextMenuBtns: 'menu/showContextMenuBtns'
     }),
     clickBtn () {
       if (this.activeBtn === false) {
         this.$router.push({ name: this.nameUrl })
-        this.activeMenuBtns(this.nameBtn)
       } else {
-        this.showContextMenuBtns(this.nameBtn)
+        this.$router.push({ name: this.nameUrl })
+        this.showContextMenuBtns(this.nameUrl)
       }
-    },
-    clickContextBtn (nameContextBtn) {
-      this.activeCotxBtn({ nameBtn: this.nameBtn, nameContextBtn: nameContextBtn })
     }
   }
 }

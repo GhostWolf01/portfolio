@@ -35,7 +35,6 @@ export default {
   methods: {
     open () {
       this.$router.push({ name: 'PortfolioItem', params: { name: this.nameUrl } })
-      this.$emit('open', this.id)
     }
   }
 }

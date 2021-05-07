@@ -10,7 +10,6 @@
         :imgSrc=portfolioComponent.imgSrc
         :imgAlt=portfolioComponent.imgAlt
         :listArray=portfolioComponent.listArray
-        @open=open
         />
       </div>
       <router-view v-show="activeComponents"></router-view>
@@ -19,7 +18,7 @@
 
 <script>
 import PortfolioItem from '../components/Portfolio/Item/PortfolioItem.vue'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Portfolio',
@@ -27,29 +26,13 @@ export default {
   computed: {
     ...mapGetters({
       getPortfolioActiveComponents: 'portfolio/getPortfolioActiveComponents',
-      getPortfolioActiveComponent: 'portfolio/getPortfolioActiveComponent',
       getPortfolioComponents: 'portfolio/getPortfolioComponents'
     }),
-    activeComponent () {
-      return this.getPortfolioActiveComponent
-    },
     activeComponents () {
       return this.getPortfolioActiveComponents
     },
     portfolioComponents () {
       return this.getPortfolioComponents
-    }
-  },
-  methods: {
-    ...mapActions({
-      setPortfolioActiveComponents: 'portfolio/setPortfolioActiveComponents',
-      setPortfolioActiveComponent: 'portfolio/setPortfolioActiveComponent',
-      activeMenuPortfolio: 'menu/activeMenuPortfolio'
-    }),
-    open (n) {
-      this.setPortfolioActiveComponents(n)
-      this.setPortfolioActiveComponent(true)
-      this.activeMenuPortfolio({ name: 'Портфолио', index: n })
     }
   }
 }

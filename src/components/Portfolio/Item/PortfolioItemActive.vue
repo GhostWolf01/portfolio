@@ -12,7 +12,17 @@ export default {
       getSrcHtmlName: 'portfolio/getSrcHtmlName'
     }),
     srcHtml () {
-      return this.getSrcHtmlName(this.$route.params.name)
+      const src = this.getSrcHtmlName(this.$route.params.name)
+      if (src !== null) {
+        return src
+      }
+      this.pushNoNFound()
+      return ''
+    }
+  },
+  methods: {
+    pushNoNFound () {
+      this.$router.push({ name: 'notFound' })
     }
   }
 }

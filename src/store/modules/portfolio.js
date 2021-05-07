@@ -9,7 +9,6 @@ export default {
   namespaced: true,
   state: {
     portfolioActiveComponents: false,
-    portfolioActiveComponent: 0,
     portfolioComponents: [
       {
         id: 0,
@@ -109,30 +108,25 @@ export default {
     getPortfolioActiveComponents: state => {
       return state.portfolioActiveComponents
     },
-    getPortfolioActiveComponent: state => {
-      return state.portfolioActiveComponent
-    },
     getPortfolioComponents: state => {
       return state.portfolioComponents
     },
     getSrcHtmlName: state => name => {
-      return (state.portfolioComponents.find(item => item.nameUrl === name)).srcHtml
+      const portfolioComponent = state.portfolioComponents.find(item => item.nameUrl === name)
+      if (portfolioComponent !== undefined) {
+        return portfolioComponent.srcHtml
+      }
+      return null
     }
   },
   mutations: {
     SET_PORTFOLIO_ACTIVE_COMPONENTS (state, active) {
       state.portfolioActiveComponents = active
-    },
-    SET_PORTFOLIO_ACTIVE_COMPONENT (state, i) {
-      state.portfolioActiveComponent = i
     }
   },
   actions: {
     setPortfolioActiveComponents ({ commit }, active) {
       commit('SET_PORTFOLIO_ACTIVE_COMPONENTS', active)
-    },
-    setPortfolioActiveComponent ({ commit }, i) {
-      commit('SET_PORTFOLIO_ACTIVE_COMPONENT', i)
     }
   }
 }

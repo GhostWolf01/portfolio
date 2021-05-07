@@ -43,9 +43,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: 'Contacts'
+  name: 'Contacts',
+  methods: {
+    ...mapActions({
+      activeMenuBtns: 'menu/activeMenuBtns'
+    })
+  }
 }
+
 </script>
 
 <style lang="scss">
