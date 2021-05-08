@@ -43,11 +43,20 @@ export default {
   },
   methods: {
     ...mapActions({
-      showContextMenuBtns: 'menu/showContextMenuBtns'
+      showContextMenuBtns: 'menu/showContextMenuBtns',
+      activeMenuBtns: 'menu/activeMenuBtns'
+
     }),
     clickBtn () {
       if (this.activeBtn === false) {
         this.$router.push({ name: this.nameUrl })
+        if (this.activeContextBtn === true) {
+          const arrPath = this.$route.path.split('/')
+          this.activeMenuBtns({
+            nameUrl: arrPath[1],
+            nameUrlContextBtn: arrPath[2]
+          })
+        }
       } else {
         this.$router.push({ name: this.nameUrl })
         this.showContextMenuBtns(this.nameUrl)

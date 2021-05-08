@@ -1,6 +1,6 @@
 <template>
   <div class="not-found">
-    <img class="not-found__img" src="../assets/imgs/404 Not Found.jpg" alt="404 Not Found">
+    <img class="not-found__img" src="../assets/imgs/404_Not_Found.jpg" alt="404 Not Found">
     <button class="not-found__btn" @click="clickBtn">
       На главную
     </button>

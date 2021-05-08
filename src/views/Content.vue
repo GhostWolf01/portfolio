@@ -42,15 +42,14 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Content',
-  data () {
-    return {
-      activeMenu: true
-    }
-  },
   computed: {
     ...mapGetters({
-      getNameTitle: 'menu/getNameTitle'
+      getNameTitle: 'menu/getNameTitle',
+      getShowMenu: 'menu/getShowMenu'
     }),
+    activeMenu () {
+      return this.getShowMenu
+    },
     nameTitle () {
       return this.getNameTitle
     }
@@ -75,17 +74,12 @@ export default {
       })
     })
   },
-  beforeRouteUpdate (to, from, next) {
+  beforeRouteUpdate (to, from) {
     const arrPath = to.path.split('/')
     this.activeMenuBtns({
       nameUrl: arrPath[1],
       nameUrlContextBtn: arrPath[2]
     })
-    if (to.name === 'content') {
-      next({ name: from.name })
-    } else {
-      next()
-    }
   }
 }
 </script>
@@ -109,12 +103,12 @@ $main_text: #ffffff;
     }
     &__header{
       padding: 10px 5px;
+      width: 100%;
       background-color: rgba($color: #66615b, $alpha: 0.6);
       background-size: 100%;
       background-position: 50%;
       background-repeat: no-repeat;
       display: flex;
-      width: 100%;
       justify-content: flex-start;
       align-items: center;
       &__btn{

@@ -27,8 +27,5 @@ export default {
     overflow-x: hidden;
     justify-content: center;
     height: 100vh;
-    overflow-x: hidden;
-    justify-content: center;
-    height: 100vh;
   }
 </style>

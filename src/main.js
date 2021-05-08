@@ -1,17 +1,11 @@
-import Vue from 'vue'
-import App from './App.vue'
-import Vuex from 'vuex'
-import VueRouter from 'vue-router'
+import { createApp } from 'vue'
 import store from './store/'
 import router from './router/'
+import App from './App.vue'
 
 import '@/assets/fonts.scss'
 
-Vue.use(VueRouter)
-Vue.use(Vuex)
-
-new Vue({
-  store,
-  router,
-  render: h => h(App)
-}).$mount('#app')
+createApp(App)
+  .use(store)
+  .use(router)
+  .mount('#portfolio')

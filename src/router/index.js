@@ -1,15 +1,14 @@
-import VueRouter from 'vue-router'
-import Content from '../pages/Content.vue'
-import About from '../pages/About.vue'
-import Portfolio from '../pages/Portfolio.vue'
-import Contacts from '../pages/Contacts.vue'
-import PortfolioItemActive from '../components/Portfolio/Item/PortfolioItemActive.vue'
-import NotFound from '../pages/404.vue'
-import Main from '../pages/Main.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import Content from '../views/Content.vue'
+import About from '../views/About.vue'
+import Portfolio from '../views/Portfolio/Portfolio.vue'
+import Contacts from '../views/Contacts.vue'
+import PortfolioItemActive from '../views/Portfolio/Item/PortfolioItemActive.vue'
+import NotFound from '../views/404.vue'
+import Main from '../views/Main.vue'
 
-export default new VueRouter({
-  mode: 'history',
-  base: '/Portfolio/',
+export default createRouter({
+  history: createWebHistory('/Portfolio/'),
   routes: [
     {
       path: '/',
@@ -48,7 +47,7 @@ export default new VueRouter({
       ]
     },
     {
-      path: '*',
+      path: '/:pathMatch(.*)*',
       name: 'notFound',
       component: NotFound
     }

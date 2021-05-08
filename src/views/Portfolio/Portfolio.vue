@@ -1,6 +1,7 @@
 <template>
   <section class="portfolio">
-      <div class="portfolio__imgs" v-show="!activeComponents">
+      <div class="portfolio__imgs"
+      v-if="!activeComponents">
         <PortfolioItem v-for="portfolioComponent in portfolioComponents"
         :key=portfolioComponent.id
         :id=portfolioComponent.id
@@ -12,12 +13,13 @@
         :listArray=portfolioComponent.listArray
         />
       </div>
-      <router-view v-show="activeComponents"></router-view>
+      <router-view v-if="activeComponents"></router-view>
   </section>
 </template>
 
 <script>
-import PortfolioItem from '../components/Portfolio/Item/PortfolioItem.vue'
+import PortfolioItem from './Item/PortfolioItem.vue'
+
 import { mapGetters } from 'vuex'
 
 export default {
@@ -44,6 +46,7 @@ $list_text: #ffffff;
 $btn_text: #ffffff;
 
 .portfolio{
+  display: flex;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -53,12 +56,12 @@ $btn_text: #ffffff;
   }
   &__imgs{
     width: 100%;
-    height: 100%;
-    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    flex-shrink: 0;
+    overflow-y: auto;
   }
   &__img{
     max-width: 380px;
@@ -66,6 +69,7 @@ $btn_text: #ffffff;
     max-height: 220px;
     height: 100%;
     z-index: 1;
+    flex-shrink: 0;
     @media(max-width: 480px) {
       width: 100%;
       margin-bottom: 10px;
@@ -75,7 +79,7 @@ $btn_text: #ffffff;
     width: 100%;
     min-height: 200px;
     height: max-content;
-    margin: 2% 0;
+    margin: 3% 0;
     padding: 0 2.5% 0 2.5%;
     display: flex;
     justify-content: flex-start;
@@ -99,7 +103,6 @@ $btn_text: #ffffff;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      flex-shrink: 0;
       @media(max-width: 480px) {
         width: 100%;
         margin: 0 3%;
@@ -134,7 +137,7 @@ $btn_text: #ffffff;
       flex-wrap: wrap;
       justify-content: flex-start;
       align-items: flex-start;
-      flex-shrink: 0;
+      flex-shrink: 1;
       height: 100%;
       width: max-content;
       &-elem{

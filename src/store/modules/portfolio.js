@@ -90,7 +90,7 @@ export default {
         id: 5,
         name: 'Vintage',
         nameUrl: 'vintage',
-        srcHtml: '/Portfolio/projects/vintage/index.html',
+        srcHtml: '/Portfolio/projects/Vintage/index.html',
         text: `Форма потдержки\n
               Отправка формы на сервер для дальнейшей обработки`,
         imgSrc: VintageImg,
