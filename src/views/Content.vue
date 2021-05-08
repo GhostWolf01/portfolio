@@ -57,7 +57,8 @@ export default {
   methods: {
     ...mapActions({
       clickShowMenu: 'menu/clickShowMenu',
-      activeMenuBtns: 'menu/activeMenuBtns'
+      activeMenuBtns: 'menu/activeMenuBtns',
+      showContextMenuBtns: 'menu/showContextMenuBtns'
     })
   },
   created () {
@@ -76,10 +77,14 @@ export default {
   },
   beforeRouteUpdate (to, from) {
     const arrPath = to.path.split('/')
+    const arrPathFrom = from.path.split('/')
     this.activeMenuBtns({
       nameUrl: arrPath[1],
       nameUrlContextBtn: arrPath[2]
     })
+    if (arrPath[1] === arrPathFrom[1] && arrPath[2] === undefined) {
+      this.showContextMenuBtns(arrPath[1])
+    }
   }
 }
 </script>
