@@ -1,5 +1,5 @@
 # Portfolio 
-([Сылка на Портфолио](https://ghostwolf01.github.io/Portfolio/)https://ghostwolf01.github.io/Portfolio/)
+[Сылка на Портфолио:](https://ghostwolf01.github.io/Portfolio/) https://ghostwolf01.github.io/Portfolio/
 
 ## Project setup
 ```
