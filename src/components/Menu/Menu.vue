@@ -14,6 +14,7 @@
             :activeBtn="menuBtn.activeBtn"
             :activeContext="menuBtn.activeContext"
             :activeContextBtn="menuBtn.activeContextBtn"/>
+            <div class="menu__btns--scroll"></div>
         </div>
     </div>
 </nav>
@@ -124,6 +125,11 @@ $main_text: #ffffff;
         padding: 10px 5px 10px 0px;
         width: 100%;
         transition: all 0.2s linear;
+        &--scroll{
+            height: 1px;
+            width: 100%;
+            flex-shrink: 0;
+        }
     }
     &--close{
         transition: all 0.4s linear;

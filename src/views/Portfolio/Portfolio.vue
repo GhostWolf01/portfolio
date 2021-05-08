@@ -1,6 +1,6 @@
 <template>
   <section class="portfolio">
-      <div class="portfolio__imgs"
+      <div class="portfolio__items"
       v-if="!activeComponents">
         <PortfolioItem v-for="portfolioComponent in portfolioComponents"
         :key=portfolioComponent.id
@@ -12,6 +12,7 @@
         :imgAlt=portfolioComponent.imgAlt
         :listArray=portfolioComponent.listArray
         />
+        <div class="portfolio__block--scroll"></div>
       </div>
       <router-view v-if="activeComponents"></router-view>
   </section>
@@ -54,7 +55,7 @@ $btn_text: #ffffff;
     width: 100%;
     height: 100%;
   }
-  &__imgs{
+  &__items{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -85,6 +86,13 @@ $btn_text: #ffffff;
     justify-content: flex-start;
     align-items: center;
     flex-shrink: 0;
+    &--scroll{
+      width: 100%;
+      margin-top: 20px;
+      min-height: 0;
+      height: 1px;
+      flex-shrink: 0;
+    }
     @media(max-width: 480px) {
       flex-direction: column;
     }

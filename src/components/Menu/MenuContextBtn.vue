@@ -76,6 +76,7 @@ $active_text: #ffffffc0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   cursor: pointer;
   width: 100%;
   &__header{

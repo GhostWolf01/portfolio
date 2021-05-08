@@ -57,6 +57,7 @@ $active_text: #ffffffc0;
   color: $main_text;
   line-height: 28px;
   display: flex;
+  flex-shrink: 0;
   justify-content: flex-start;
   align-items: center;
   transition: all 0.15s linear;
