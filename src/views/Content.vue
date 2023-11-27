@@ -61,11 +61,6 @@ export default {
       showContextMenuBtns: 'menu/showContextMenuBtns'
     })
   },
-  created () {
-    if (this.$route.name === 'content') {
-      this.$router.push({ name: 'about' })
-    }
-  },
   beforeRouteEnter (to, from, next) {
     next(vm => {
       const arrPath = to.path.split('/')
