@@ -6,6 +6,9 @@ on:
   push:
     branches: ["master"]
 
+env:
+  NUXT_APP_CDN_URL: ${{ vars.NUXT_APP_CDN_URL }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
