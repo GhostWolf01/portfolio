@@ -1,25 +1,13 @@
-# Portfolio 
-[Сылка на Портфолио:](https://ghostwolf01.github.io/Portfolio/) https://ghostwolf01.github.io/Portfolio/
+# dev
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
+```bash
+dev docker compose -f docker-compose.dev.yaml build
+dev docker compose -f docker-compose.dev.yaml up
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+# prod
 
-### Lints and fixes files
+```bash
+dev docker compose -f docker-compose.prod.yaml build
+dev docker compose -f docker-compose.prod.yaml up
 ```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -1,0 +1,18 @@
+FROM oven/bun:1 as base
+
+ARG BASE_URL
+ENV BASE_URL=$BASE_URL
+
+WORKDIR /app
+COPY ./src .
+RUN bun install
+
+RUN bun run build
+
+USER bun
+
+ENV PORT=80
+
+EXPOSE 80/tcp 443
+
+ENTRYPOINT [ "bun", "run", "./.output/server/index.mjs" ]
