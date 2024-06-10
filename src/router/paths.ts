@@ -1,4 +1,4 @@
-const cdnUrl = import.meta.env.DEV ? '' : import.meta.env.NUXT_APP_CDN_URL ?? '';
+const cdnUrl = process.prerender ? process.env.GITHUB_URL : '';
 
 export const routerPaths = {
   home: cdnUrl + '/',

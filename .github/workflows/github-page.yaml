@@ -7,7 +7,7 @@ on:
     branches: ["master"]
 
 env:
-  NUXT_APP_CDN_URL: https://ghostwolf01.github.io/Portfolio/
+  GITHUB_URL: https://ghostwolf01.github.io/Portfolio
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
       - name: Build
         run: cd ./src && bun run build
         env:
-          NUXT_APP_CDN_URL: ${{ env.NUXT_APP_CDN_URL }}
+          GITHUB_URL: ${{ env.GITHUB_URL }}
           NITRO_PRESET: github_pages
 
       - name: Upload artifact
