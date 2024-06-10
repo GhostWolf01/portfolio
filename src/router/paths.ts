@@ -1,4 +1,4 @@
-const cdnUrl = process.prerender ? process.env.GITHUB_URL : '';
+const cdnUrl = import.meta.env.PROD ? process.env.GITHUB_URL : '';
 
 export const routerPaths = {
   home: cdnUrl + '/',
