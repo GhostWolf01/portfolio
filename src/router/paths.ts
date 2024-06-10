@@ -1,7 +1,11 @@
+import { useAppConfig } from '#app';
+
+const cdnUrl = import.meta.dev ? '' : useAppConfig().cdnUrl ?? '';
+
 export const routerPaths = {
-  home: '/',
-  about: '/about',
-  contacts: '/contacts',
-  projects: '/projects',
-  project: (link: string = ':link'): string => `/project/${link}`,
+  home: cdnUrl + '/',
+  about: cdnUrl + '/about',
+  contacts: cdnUrl + '/contacts',
+  projects: cdnUrl + '/projects',
+  project: (link: string = ':link'): string => cdnUrl + `/project/${link}`,
 } as const;
