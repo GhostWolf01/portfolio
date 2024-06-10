@@ -5,7 +5,7 @@ services:
       context: ./
       dockerfile: Dockerfile-dev
       args:
-        - BASE_URL=${BASE_URL}
+        - NUXT_APP_BASE_URL=${NUXT_APP_BASE_URL}
     restart: unless-stopped
     volumes:
       - ./src:/usr/src/app/my-app

@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: cd ./src && bun run build
         env:
-          BASE_UR: ${{ steps.deployment.outputs.page_url }}
+          NUXT_APP_BASE_URL: ${{ steps.deployment.outputs.page_url }}
           NITRO_PRESET: github_pages
 
       - name: Upload artifact
