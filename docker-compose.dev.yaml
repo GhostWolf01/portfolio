@@ -1,0 +1,13 @@
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./
+      dockerfile: Dockerfile-dev
+      args:
+        - BASE_URL=${BASE_URL}
+    restart: unless-stopped
+    volumes:
+      - ./src:/usr/src/app/my-app
+    ports:
+      - 3001:80
