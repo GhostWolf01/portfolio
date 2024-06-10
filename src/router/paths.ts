@@ -1,6 +1,4 @@
-import { useAppConfig } from '#app';
-
-const cdnUrl = import.meta.dev ? '' : useAppConfig().cdnUrl ?? '';
+const cdnUrl = import.meta.env.DEV ? '' : import.meta.env.NUXT_APP_CDN_URL ?? '';
 
 export const routerPaths = {
   home: cdnUrl + '/',
