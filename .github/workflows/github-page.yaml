@@ -15,18 +15,17 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-      - run: cd ./src
       - name: Install dependencies
-        run: bun install
+        run: cd ./src && bun install
       - name: Build
-        run: bun run build
+        run: cd ./src && bun run build
         env:
           NITRO_PRESET: github_pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.output/public
+          path: ./src/.output/public
 
   # Deployment job
   deploy:
