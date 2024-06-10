@@ -7,7 +7,7 @@ on:
     branches: ["master"]
 
 env:
-  NUXT_APP_CDN_URL: ${{ vars.NUXT_APP_CDN_URL }}
+  NUXT_APP_CDN_URL: https://ghostwolf01.github.io/Portfolio/
 
 jobs:
   build:
