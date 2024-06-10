@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout
+        uses: actions/checkout@v4.1.6
 
       # Configure Workload Identity Federation and generate an access token.
       # - id: "auth"
@@ -51,7 +51,7 @@ jobs:
 
       # Alternative option - authentication via credentials json
       - id: "auth"
-        uses: google-github-actions/auth
+        uses: google-github-actions/auth@v2.1.3
         with:
           credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
 
@@ -60,7 +60,7 @@ jobs:
           gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
       # Get the GKE credentials so we can deploy to the cluster
       - name: Set up GKE credentials
-        uses: google-github-actions/get-gke-credentials
+        uses: google-github-actions/get-gke-credentials@v2.2.0
         with:
           cluster_name: ${{ env.GKE_CLUSTER }}
           location: ${{ env.GKE_ZONE }}
