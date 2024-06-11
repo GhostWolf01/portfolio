@@ -10,8 +10,4 @@ export default defineNuxtConfig({
   vuetify: {
     vuetifyOptions: './vuetify.config.ts',
   },
-  app: {
-    baseURL: import.meta.env.PROD ? process.env.GITHUB_URL + '/' : '/',
-    cdnURL: process.env.GITHUB_URL + '/',
-  },
 });

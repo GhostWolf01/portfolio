@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: deployment
+metadata:
+  name: <app name>-deployment
+  namespace: default
+  labels:
+    app: <app name>
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: <app name>
+  template:
+    metadata:
+      labels:
+        app: <app name>
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: <container name>
+          image: <my-image>
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: <app name>-config
