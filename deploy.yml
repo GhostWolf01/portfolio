@@ -1,27 +1,27 @@
 apiVersion: apps/v1
-kind: deployment
+kind: Deployment
 metadata:
-  name: <app name>-deployment
+  name: portfolio-app-deployment
   namespace: default
   labels:
-    app: <app name>
+    app: portfolio-app
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: <app name>
+      app: portfolio-app
   template:
     metadata:
       labels:
-        app: <app name>
+        app: portfolio-app
     spec:
       imagePullSecrets:
         - name: regcred
       containers:
-        - name: <container name>
-          image: <my-image>
+        - name: portfolio-app
+          image: europe-central2-docker.pkg.dev/portfolio-426015/portfolio/portfolio:latest
           ports:
             - containerPort: 80
           envFrom:
             - configMapRef:
-                name: <app name>-config
+                name: portfolio-app-config
