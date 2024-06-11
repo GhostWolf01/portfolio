@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.6
 
       # Configure Workload Identity Federation and generate an access token.
       # - id: "auth"
@@ -51,7 +51,7 @@ jobs:
 
       # Alternative option - authentication via credentials json
       - id: "auth"
-        uses: "google-github-actions/auth@v2"
+        uses: google-github-actions/auth@v2.1.3
         with:
           credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
 
@@ -60,10 +60,11 @@ jobs:
           gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://$GAR_LOCATION-docker.pkg.dev
       # Get the GKE credentials so we can deploy to the cluster
       - name: Set up GKE credentials
-        uses: google-github-actions/get-gke-credentials@v2
+        uses: google-github-actions/get-gke-credentials@v2.2.0
         with:
           cluster_name: ${{ env.GKE_CLUSTER }}
-          location: ${{ env.GKE_ZONE }}
+          location: ${{ env.GAR_LOCATION }}
+          project_id: ${{ env.PROJECT_ID }}
 
       # Build the Docker image
       - name: Build
@@ -78,16 +79,8 @@ jobs:
       - name: Publish
         run: |-
           docker push "$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA"
-      # Set up kustomize
-      - name: Set up Kustomize
-        run: |-
-          curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v5.4.2/kustomize_5.4.2_linux_amd64
-          chmod u+x ./kustomize
       # Deploy the Docker image to the GKE cluster
       - name: Deploy
         run: |-
-          # replacing the image name in the k8s template
-          ./kustomize edit set image LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA
-          ./kustomize build . | kubectl apply -f -
-          kubectl rollout status deployment/$DEPLOYMENT_NAME
-          kubectl get services -o wide
+          kubectl apply -f deploy.yml
+          kubectl get pods
