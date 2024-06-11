@@ -21,7 +21,7 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GAR_LOCATION: europe-central2 # TODO: update region of the Artifact Registry
   GKE_CLUSTER: autopilot-cluster-1 # TODO: update to cluster name
-  GKE_ZONE: europe-central2-b # TODO: update to cluster zone
+  GKE_ZONE: europe-central2-a # TODO: update to cluster zone
   DEPLOYMENT_NAME: portfolio # TODO: update to deployment name
   REPOSITORY: portfolio # TODO: update to Artifact Registry docker repository
   IMAGE: portfolio
@@ -63,7 +63,7 @@ jobs:
         uses: google-github-actions/get-gke-credentials@v2.2.0
         with:
           cluster_name: ${{ env.GKE_CLUSTER }}
-          location: ${{ env.GKE_ZONE }}
+          location: ${{ env.GAR_LOCATION }}
           project_id: ${{ env.PROJECT_ID }}
 
       # Build the Docker image
