@@ -2,7 +2,7 @@ FROM oven/bun:1 as base
 
 WORKDIR /app
 COPY ./src .
-RUN bun install
+RUN bun install -f
 
 RUN bun run build
 
@@ -12,4 +12,4 @@ ENV PORT=80
 
 EXPOSE 80/tcp 443
 
-ENTRYPOINT [ "bun", "run", "./.output/server/index.mjs" ]
+ENTRYPOINT [ "bun", "run", "start" ]

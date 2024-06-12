@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import { useHead, navigateTo } from "#imports";
-import NotFoundImg from "@/assets/images/404_Not_Found.jpg";
+import { useHead, navigateTo } from '#imports';
+import NotFoundImg from '@/assets/images/404_Not_Found.jpg';
 
-import type { NuxtError } from "#app";
+import type { NuxtError } from '#app';
 
 const props = defineProps({
   error: Object as () => NuxtError,
 });
 
 useHead({
-  title: "404 — Portfolio Getmanchuk Illya",
+  title: '404 — Portfolio Getmanchuk Illya',
   meta: [
     {
-      name: "description",
-      content: "Portfolio Front-End Developer Getmanchuk Illya 404 Page",
+      name: 'description',
+      content: 'Portfolio Front-End Developer Getmanchuk Illya 404 Page',
     },
   ],
 });
 
 console.log(props.error);
 
-navigateTo("/not-found");
+// navigateTo('/not-found');
 </script>
 
 <template>
