@@ -1,6 +1,6 @@
 import { useRuntimeConfig } from '#app';
 
-const baseURL = import.meta.env.PROD ? useRuntimeConfig().app.baseURL : '';
+const baseURL = import.meta.env.PROD ? useRuntimeConfig().app.cdnURL : '';
 
 export const routerPaths = {
   home: baseURL + '/',
