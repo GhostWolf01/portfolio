@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { definePageMeta, useRouter, useHead, navigateTo } from "#imports";
-import Technologies from "@/components/technologies/Technologies.vue";
-import Tags from "@/components/project/Tags.vue";
-import ProjectImgs from "@/components/project/ProjectImgs.vue";
-import { getProject } from "@/data";
+import { definePageMeta, useRouter, useHead, navigateTo } from '#imports';
+import Technologies from '@/components/technologies/Technologies.vue';
+import Tags from '@/components/project/Tags.vue';
+import ProjectImgs from '@/components/project/ProjectImgs.vue';
+import { getProject } from '@/data';
 
 definePageMeta({
-  title: "Project",
+  title: 'Project',
 });
 
 const route = useRouter().currentRoute;
 const project = getProject(route.value.params.link as string);
 
-if (!project.slug) navigateTo("/not-found");
+if (!project.slug) navigateTo('/not-found');
 
 route.value.meta.title = project.title;
 
@@ -20,7 +20,7 @@ useHead({
   title: `${project.title} — Portfolio Getmanchuk Illya`,
   meta: [
     {
-      name: "description",
+      name: 'description',
       content: `Portfolio Front-End Developer Getmanchuk Illya ${project.title} Page`,
     },
   ],

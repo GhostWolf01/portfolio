@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { definePageMeta } from "#imports";
-import NotFoundImg from "@/assets/images/404_Not_Found.jpg";
+import { definePageMeta } from '#imports';
+import NotFoundImg from '@/assets/images/404_Not_Found.jpg';
 definePageMeta({
-  title: "404",
+  title: '404',
   footer: false,
 });
 </script>

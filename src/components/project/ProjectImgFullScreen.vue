@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <script setup lang="ts">
-import type { IProjectImage } from "@/types/types";
-import { ref, watch } from "vue";
+import type { IProjectImage } from '@/types/types';
+import { ref, watch } from 'vue';
 interface Props {
   dialog: boolean;
   img: IProjectImage;
@@ -10,7 +10,7 @@ interface Props {
 const props = defineProps<Props>();
 
 interface Emits {
-  (e: "disableFullscreen"): void;
+  (e: 'disableFullscreen'): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -21,13 +21,13 @@ watch(
   () => props.dialog,
   () => {
     dialogF.value = props.dialog;
-  }
+  },
 );
 
 // fa-solid fa-compress
 function disableFullscreen() {
   dialogF.value = false;
-  emit("disableFullscreen");
+  emit('disableFullscreen');
 }
 </script>
 

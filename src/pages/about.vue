@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { definePageMeta } from "#imports";
-import { timeLine } from "@/data";
-import personImage from "@/assets/images/IMG_20220502_205711.jpg";
-import LinksBtns from "@/components/links/LinksBtns.vue";
-import TimeLine from "@/components/TimeLine.vue";
-import HandIcon from "@/components/icons/HandIcon.vue";
+import { definePageMeta } from '#imports';
+import { timeLine } from '@/data';
+import personImage from '@/assets/images/IMG_20220502_205711.jpg';
+import LinksBtns from '@/components/links/LinksBtns.vue';
+import TimeLine from '@/components/TimeLine.vue';
+import HandIcon from '@/components/icons/HandIcon.vue';
 
 definePageMeta({
-  title: "About",
+  title: 'About',
 });
 </script>
 

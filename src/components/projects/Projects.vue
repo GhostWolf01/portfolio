@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { IProject } from "@/types/types";
-import Project from "./ProjectCard.vue";
+import type { IProject } from '@/types/types';
+import Project from './ProjectCard.vue';
 interface Props {
   projects: IProject[];
   image?: boolean;
