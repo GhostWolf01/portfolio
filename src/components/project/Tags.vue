@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { ITag } from "@/types/types";
-import Tag from "./Tag.vue";
+import type { ITag } from '@/types/types';
+import Tag from './Tag.vue';
 interface Props {
   tags: ITag[];
 }

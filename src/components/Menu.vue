@@ -1,36 +1,36 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import type { IMenuItem } from "@/types/types";
-import colors from "../utils/colors";
-import { routerPaths } from "@/router/paths";
-import { useResize } from "@/composables/useResize";
+import { ref } from 'vue';
+import type { IMenuItem } from '@/types/types';
+import colors from '../utils/colors';
+import { routerPaths } from '@/router/paths';
+import { useResize } from '@/composables/useResize';
 
 const activeMenu = ref(false);
 
 const menuItems = ref<IMenuItem[]>([
   {
-    icon: "fas fa-solid fa-house",
-    title: "Home",
+    icon: 'fas fa-solid fa-house',
+    title: 'Home',
     link: routerPaths.home,
-    value: "home",
+    value: 'home',
   },
   {
-    icon: "fas fa-solid fa-user",
-    title: "About",
+    icon: 'fas fa-solid fa-user',
+    title: 'About',
     link: routerPaths.about,
-    value: "about",
+    value: 'about',
   },
   {
-    icon: "fas fa-solid fa-briefcase",
-    title: "Projects",
+    icon: 'fas fa-solid fa-briefcase',
+    title: 'Projects',
     link: routerPaths.projects,
-    value: "projects",
+    value: 'projects',
   },
   {
-    icon: "fas fa-solid fa-image-portrait",
-    title: "Contacts",
+    icon: 'fas fa-solid fa-image-portrait',
+    title: 'Contacts',
     link: routerPaths.contacts,
-    value: "contacts",
+    value: 'contacts',
   },
 ]);
 
@@ -43,7 +43,7 @@ function onScroll(event: WheelEvent) {
 }
 
 function scrollTop() {
-  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 }
 
 const isMobile = useResize();
@@ -114,7 +114,7 @@ function onResize() {
 </template>
 
 <style lang="scss">
-@use "../assets/styles/variables.scss";
+@use '../assets/styles/variables.scss';
 .navigation {
   overflow: visible;
   z-index: 999;

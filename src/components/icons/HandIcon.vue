@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { CustomIconProps } from "@/types/customIcon";
-import colors from "@/utils/colors";
+import type { CustomIconProps } from '@/types/customIcon';
+import colors from '@/utils/colors';
 
 const props = defineProps<CustomIconProps>();
 </script>

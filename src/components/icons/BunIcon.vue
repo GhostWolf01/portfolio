@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useSize } from "@/utils/size";
-import type { CustomIconProps } from "@/types/customIcon";
+import { useSize } from '@/utils/size';
+import type { CustomIconProps } from '@/types/customIcon';
 
 const props = defineProps<CustomIconProps>();
 

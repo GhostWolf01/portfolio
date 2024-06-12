@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { definePageMeta } from "#imports";
-import Projects from "@/components/projects/Projects.vue";
-import { projects } from "@/data";
+import { definePageMeta } from '#imports';
+import Projects from '@/components/projects/Projects.vue';
+import { projects } from '@/data';
 definePageMeta({
-  title: "Projects",
+  title: 'Projects',
 });
 </script>
 

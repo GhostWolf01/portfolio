@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { IProject } from "@/types/types";
-import TechnologyIcon from "../icons/TechnologyIcon.vue";
+import type { IProject } from '@/types/types';
+import TechnologyIcon from '../icons/TechnologyIcon.vue';
 
 interface Props {
   project: IProject;
