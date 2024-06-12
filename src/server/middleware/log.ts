@@ -1,4 +1,4 @@
-import { defineEventHandler, getRequestURL, getRequestHeaders } from "#imports";
+import { defineEventHandler, getRequestURL, getRequestHeaders } from '#imports';
 
 export default defineEventHandler((event) => {
   const date = new Date();
@@ -6,7 +6,7 @@ export default defineEventHandler((event) => {
   const requestURL = getRequestURL(event);
   console.log(
     `${date.toISOString()} New request: ${event.method} ${requestURL} User: ${
-      requestHeaders["user-agent"]
-    };`
+      requestHeaders['user-agent']
+    };`,
   );
 });

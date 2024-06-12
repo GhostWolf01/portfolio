@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { definePageMeta } from "#imports";
-import { timeLine, projects, technologies, programs } from "@/data";
-import TimeLine from "@/components/TimeLine.vue";
-import Projects from "@/components/projects/Projects.vue";
-import Technologies from "@/components/technologies/Technologies.vue";
-import Programs from "@/components/programs/Programs.vue";
-import LinksBtns from "@/components/links/LinksBtns.vue";
-import HandIcon from "@/components/icons/HandIcon.vue";
+import { definePageMeta } from '#imports';
+import { timeLine, projects, technologies, programs } from '@/data';
+import TimeLine from '@/components/TimeLine.vue';
+import Projects from '@/components/projects/Projects.vue';
+import Technologies from '@/components/technologies/Technologies.vue';
+import Programs from '@/components/programs/Programs.vue';
+import LinksBtns from '@/components/links/LinksBtns.vue';
+import HandIcon from '@/components/icons/HandIcon.vue';
 
 definePageMeta({
-  title: "Home",
+  title: 'Home',
 });
 
 const favoriteProjects = projects.slice(0, 6);

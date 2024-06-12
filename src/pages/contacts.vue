@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { definePageMeta } from "#imports";
-import { links } from "@/data";
-import colors from "@/utils/colors";
+import { definePageMeta } from '#imports';
+import { links } from '@/data';
+import colors from '@/utils/colors';
 
 definePageMeta({
-  title: "Contacts",
+  title: 'Contacts',
 });
 </script>
 

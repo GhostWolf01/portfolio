@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import colors from "@/utils/colors";
-import type { ITag } from "@/types/types";
-import type { PredefinedSizes } from "@/types/size.mjs";
-import TechnologyIcon from "@/components/icons/TechnologyIcon.vue";
+import colors from '@/utils/colors';
+import type { ITag } from '@/types/types';
+import type { PredefinedSizes } from '@/types/size.mjs';
+import TechnologyIcon from '@/components/icons/TechnologyIcon.vue';
 
 interface Props {
   tag: ITag;
