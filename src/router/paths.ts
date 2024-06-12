@@ -1,6 +1,4 @@
-import { useRuntimeConfig } from '#app';
-
-const baseURL = import.meta.env.PROD ? useRuntimeConfig().app.cdnURL : '';
+const baseURL = ''; //import.meta.env.PROD ? import.meta.env.NUXT_APP_CDN_URL ?? '' : '';
 
 export const routerPaths = {
   home: baseURL + '/',
