@@ -2,6 +2,7 @@ import type { ITechnology } from '@/types/types';
 
 export const technologies: ITechnology[] = [
   { title: 'JAVASCRIPT', icon: 'fa-brands fa-js', custom: false },
+  { title: 'TYPESCRIPT', icon: 'TypescriptIcon', custom: true },
   { title: 'RUST', icon: 'fa-brands fa-rust', custom: false },
   { title: 'NODE.JS', icon: 'fa-brands fa-node', custom: false },
   { title: 'BUN', icon: 'BunIcon', custom: true },
