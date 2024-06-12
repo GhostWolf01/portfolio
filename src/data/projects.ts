@@ -298,14 +298,14 @@ export const projects: IProject[] = [
     description:
       'Web application Constructor весь вміст складається з блоків які задаються в CMS, сторінки а також питання для калькулятора вартості також задаються в CMS',
     ps: true,
-    titleImg: getProjectsImgUrl('/constructor/home-page.png'),
+    titleImg: getProjectsImgUrl('/construct/home-page.png'),
     images: [
-      { src: getProjectsImgUrl('/constructor/home-page.png'), title: '', mobile: false },
-      { src: getProjectsImgUrl('/constructor/home-mobile-page.png'), title: '', mobile: true },
-      { src: getProjectsImgUrl('/constructor/calculator-page.png'), title: '', mobile: false },
-      { src: getProjectsImgUrl('/constructor/calculator-page-2.png'), title: '', mobile: false },
-      { src: getProjectsImgUrl('/constructor/calculator-page-3.png'), title: '', mobile: false },
-      { src: getProjectsImgUrl('/constructor/calculator-page-4.png'), title: '', mobile: false },
+      { src: getProjectsImgUrl('/construct/home-page.png'), title: '', mobile: false },
+      { src: getProjectsImgUrl('/construct/home-mobile-page.png'), title: '', mobile: true },
+      { src: getProjectsImgUrl('/construct/calculator-page.png'), title: '', mobile: false },
+      { src: getProjectsImgUrl('/construct/calculator-page-2.png'), title: '', mobile: false },
+      { src: getProjectsImgUrl('/construct/calculator-page-3.png'), title: '', mobile: false },
+      { src: getProjectsImgUrl('/construct/calculator-page-4.png'), title: '', mobile: false },
     ],
     technologies: [
       { title: 'JavaScript', icon: 'fa-brands fa-js', custom: false },
