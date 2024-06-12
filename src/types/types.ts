@@ -58,4 +58,5 @@ export interface ILinks {
   text: string;
   fullText: string;
   icon: string;
+  download?: string;
 }

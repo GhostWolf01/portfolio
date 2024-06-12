@@ -39,5 +39,13 @@ export const links: ILinks[] = [
     fullText: 'Telegram: GhostWolf01',
     icon: 'fa-brands fa-telegram',
   },
+  {
+    key: 'cv',
+    link: '/CV/Illya_Getmanchuk_CV.pdf',
+    text: 'Download CV',
+    fullText: 'Download CV',
+    icon: 'fa-solid fa-download',
+    download: 'Illya_Getmanchuk_CV',
+  },
 ];
 // fa-solid fa-graduation-cap fa-code fa-briefcase
