@@ -10,6 +10,7 @@ import { links } from '@/data';
       :key="item.key"
       :href="item.link"
       :color="colors.grey.darken6"
+      :download="item.download"
       rounded="pill"
       size="large"
     >
