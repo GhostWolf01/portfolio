@@ -22,6 +22,7 @@ const components: IComponents = {
   ElectronIcon: defineAsyncComponent(() => import('./ElectronIcon.vue')),
   BunIcon: defineAsyncComponent(() => import('./BunIcon.vue')),
   NextIcon: defineAsyncComponent(() => import('./NextIcon.vue')),
+  TypescriptIcon: defineAsyncComponent(() => import('./TypescriptIcon.vue')),
 };
 
 interface Props {
