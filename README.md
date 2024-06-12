@@ -1,13 +1,13 @@
 # dev
 
 ```bash
-dev docker compose -f docker-compose.dev.yaml build
-dev docker compose -f docker-compose.dev.yaml up
+docker compose -f docker-compose.dev.yaml build
+docker compose -f docker-compose.dev.yaml up
 ```
 
 # prod
 
 ```bash
-dev docker compose -f docker-compose.prod.yaml build
-dev docker compose -f docker-compose.prod.yaml up
+docker compose -f docker-compose.prod.yaml build
+docker compose -f docker-compose.prod.yaml up
 ```
