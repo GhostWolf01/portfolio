@@ -1,5 +1,5 @@
 # [x] Update Technology
 
-# [] Data
+# [x] Data
 
-# [] Github Action
+# [x] Github Action
