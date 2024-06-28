@@ -7,6 +7,7 @@ import Technologies from '@/components/technologies/Technologies.vue';
 import Programs from '@/components/programs/Programs.vue';
 import LinksBtns from '@/components/links/LinksBtns.vue';
 import HandIcon from '@/components/icons/HandIcon.vue';
+import personImage from '@/assets/images/IMG_20220502_205711.jpg';
 
 definePageMeta({
   title: 'Home',
@@ -25,8 +26,19 @@ const favoriteProjects = projects.slice(0, 6);
             <HandIcon size="x-small" />
           </h1>
           <h2 class="text-sm-h2 text-h3 text-light-green-accent-5 text-center text-md-left">
-            Front-End Developer
+            Front-End/Fullstack Node.js Developer
           </h2>
+          <div class="d-flex justify-center">
+            <v-img
+              class="flex-0-1 mx-auto"
+              rounded="xl"
+              cover
+              :src="personImage"
+              width="300"
+              height="400"
+              alt="Getmanchuk Illya Photo"
+            ></v-img>
+          </div>
           <LinksBtns />
           <p class="text-h6 text-grey-lighten-4">
             Я людина, яка любить вирішувати проблеми бізнесу та віддана виконанню важливих та

@@ -21,7 +21,7 @@ definePageMeta({
             <HandIcon size="x-small" />
           </h2>
           <h2 class="text-sm-h2 text-h3 text-light-green-accent-5 mb-2 text-center text-sm-left">
-            Front-End Developer
+            Front-End/Fullstack Node.js Developer
           </h2>
           <div class="d-flex justify-center">
             <v-img
