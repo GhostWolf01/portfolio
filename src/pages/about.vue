@@ -20,8 +20,8 @@ definePageMeta({
             Привіт, мене звати Ілля
             <HandIcon size="x-small" />
           </h2>
-          <h2 class="text-sm-h2 text-h3 text-light-green-accent-5 mb-2 text-center text-sm-left">
-            Front-End Developer
+          <h2 class="text-sm-h3 text-h4 text-light-green-accent-5 mb-2 text-center text-sm-left">
+            Front-End/Fullstack Node.js Developer
           </h2>
           <div class="d-flex justify-center">
             <v-img
@@ -38,10 +38,11 @@ definePageMeta({
           <div class="mb-1">
             <p class="text-h5 text-grey-lighten-5 mb-2">
               я
-              <span class="text-h5 text-light-green-accent-5">Front-End Developer</span>, людина,
-              яка любить вирішувати проблеми бізнесу та віддана виконанню важливих та цікавих
-              завдань. Моє серце б'ється в ритмі викликів, і я завжди готовий зануритися у глибини
-              складних задач. Для мене нудьга - це найгірше, тому я завжди шукаю можливості
+              <span class="text-h5 text-light-green-accent-5">
+                Front-End/Fullstack Node.js Developer</span
+              >, людина, яка любить вирішувати проблеми бізнесу та віддана виконанню важливих та
+              цікавих завдань. Моє серце б'ється в ритмі викликів, і я завжди готовий зануритися у
+              глибини складних задач. Для мене нудьга - це найгірше, тому я завжди шукаю можливості
               розвиватися та рости через виклики, які приводять мене до нових горизонтів.
             </p>
             <p class="text-h5 text-grey-lighten-5 mb-2">
