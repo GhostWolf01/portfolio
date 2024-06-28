@@ -25,10 +25,10 @@ const favoriteProjects = projects.slice(0, 6);
             Привіт, мене звати Ілля
             <HandIcon size="x-small" />
           </h1>
-          <h2 class="text-sm-h2 text-h3 text-light-green-accent-5 text-center text-md-left">
+          <h2 class="text-sm-h3 text-h4 text-light-green-accent-5 text-center text-md-left">
             Front-End/Fullstack Node.js Developer
           </h2>
-          <div class="d-flex justify-center">
+          <div class="d-flex justify-center mt-2">
             <v-img
               class="flex-0-1 mx-auto"
               rounded="xl"
