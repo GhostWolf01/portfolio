@@ -51,9 +51,9 @@ export const timeLine: ITimeLine[] = [
   },
   {
     left: {
-      text: '',
-      icon: '',
-      date: '',
+      text: 'Freelance Fullstack Node.js',
+      icon: 'fa-solid fa-briefcase',
+      date: '2023.05.01',
     },
     right: {
       text: 'Create Mouse Macros',
@@ -83,6 +83,18 @@ export const timeLine: ITimeLine[] = [
       text: 'Update Portfolio',
       icon: 'fa-solid fa-code',
       date: '2024.06.03',
+    },
+  },
+  {
+    left: {
+      text: '',
+      icon: '',
+      date: '',
+    },
+    right: {
+      text: 'Freelance Fullstack Node.js',
+      icon: 'fa-solid fa-briefcase',
+      date: 'until now',
     },
   },
 ];
