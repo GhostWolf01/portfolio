@@ -75,21 +75,9 @@ export const timeLine: ITimeLine[] = [
   },
   {
     left: {
-      text: '',
-      icon: '',
-      date: '',
-    },
-    right: {
       text: 'Update Portfolio',
       icon: 'fa-solid fa-code',
       date: '2024.06.03',
-    },
-  },
-  {
-    left: {
-      text: '',
-      icon: '',
-      date: '',
     },
     right: {
       text: 'Freelance Fullstack Node.js',
