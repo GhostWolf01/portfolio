@@ -1,4 +1,4 @@
-import { defineEventHandler, getRequestURL, getRequestHeaders } from '#imports';
+import { defineEventHandler, getRequestURL, getRequestHeaders } from 'h3';
 
 export default defineEventHandler((event) => {
   const date = new Date();

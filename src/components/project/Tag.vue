@@ -20,7 +20,7 @@ const props = defineProps<Props>();
       :technology="tag"
       :size="props.size"
     />
-    <span class="tag__text">{{ tag.title }}</span>
+    <span class="tag__text text-grey-lighten-4">{{ tag.title }}</span>
   </v-chip>
 </template>
 

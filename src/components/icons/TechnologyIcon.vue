@@ -23,6 +23,11 @@ const components: IComponents = {
   BunIcon: defineAsyncComponent(() => import('./BunIcon.vue')),
   NextIcon: defineAsyncComponent(() => import('./NextIcon.vue')),
   TypescriptIcon: defineAsyncComponent(() => import('./TypescriptIcon.vue')),
+  GrafanaIcon: defineAsyncComponent(() => import('./GrafanaIcon.vue')),
+  PrometheusIcon: defineAsyncComponent(() => import('./PrometheusIcon.vue')),
+  LokiIcon: defineAsyncComponent(() => import('./LokiIcon.vue')),
+  TempoIcon: defineAsyncComponent(() => import('./TempoIcon.vue')),
+  OtelIcon: defineAsyncComponent(() => import('./OtelIcon.vue')),
 };
 
 interface Props {

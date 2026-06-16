@@ -53,7 +53,7 @@ const props = defineProps<Props>();
   // height:;
   &__body {
     &-text {
-      height: 90px;
+      height: 80px;
       display: -webkit-box;
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;

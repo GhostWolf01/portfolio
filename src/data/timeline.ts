@@ -82,6 +82,30 @@ export const timeLine: ITimeLine[] = [
     right: {
       text: 'Freelance Fullstack Node.js',
       icon: 'fa-solid fa-briefcase',
+      date: '2024.09.28',
+    },
+  },
+  {
+    left: {
+      text: 'Middle Fullstack Node.js/Next.js Developer - I&B monitoring',
+      icon: 'fa-solid fa-briefcase',
+      date: '2024.09.29',
+    },
+    right: {
+      text: 'Middle Fullstack Node.js/Next.js Developer - I&B monitoring',
+      icon: 'fa-solid fa-briefcase',
+      date: '2026.06.01',
+    },
+  },
+  {
+    left: {
+      text: 'Update Portfolio',
+      icon: 'fa-solid fa-code',
+      date: '2026.06.16',
+    },
+    right: {
+      text: 'Freelance Fullstack Node.js',
+      icon: 'fa-solid fa-briefcase',
       date: 'until now',
     },
   },

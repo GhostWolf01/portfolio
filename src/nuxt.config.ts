@@ -5,8 +5,12 @@ export default defineNuxtConfig({
     autoImport: false,
   },
   css: ['@/assets/styles/main.scss'],
-  modules: ['vuetify-nuxt-module', 'nuxt-simple-robots'],
+  modules: ['vuetify-nuxt-module', '@nuxtjs/robots'],
   vuetify: {
     vuetifyOptions: './vuetify.config.ts',
   },
+  typescript: {
+    typeCheck: true,
+  },
+  compatibilityDate: 'latest',
 });

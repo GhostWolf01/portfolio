@@ -4,6 +4,7 @@ import Technologies from '@/components/technologies/Technologies.vue';
 import Tags from '@/components/project/Tags.vue';
 import ProjectImgs from '@/components/project/ProjectImgs.vue';
 import { getProject } from '@/data';
+import colors from '@/utils/colors';
 
 definePageMeta({
   title: 'Project',
@@ -41,6 +42,26 @@ useHead({
           <p class="project-page__description text-body-1 text-grey-lighten-4">
             {{ project.description }}
           </p>
+          <div
+            v-if="project.links.length > 0"
+            class="project__links-btns d-flex align-center justify-center justify-sm-start flex-wrap my-3"
+          >
+            <v-btn
+              v-for="item in project.links"
+              :key="item.key"
+              :href="item.link"
+              :color="colors.grey.darken6"
+              :download="item.download"
+              rounded="pill"
+              size="large"
+              target="_blank"
+            >
+              <template #prepend>
+                <v-icon :color="colors.lightGreen.accent5" :icon="item.icon" size="large"></v-icon>
+              </template>
+              {{ item.text }}
+            </v-btn>
+          </div>
           <p v-if="project.ps" class="project-page__description text-body-1 text-grey-lighten-4">
             PS із-за NDA не всі сторінки показано, інформація змінена.
           </p>
@@ -64,4 +85,11 @@ useHead({
   </v-container>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.project__links-btns {
+  gap: 8px 8px;
+  & > :last-child {
+    margin-right: 0 !important;
+  }
+}
+</style>
