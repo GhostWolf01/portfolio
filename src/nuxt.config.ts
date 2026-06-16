@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     autoImport: false,
   },
   css: ['@/assets/styles/main.scss'],
-  modules: ['vuetify-nuxt-module', '@nuxtjs/robots'],
+  modules: ['vuetify-nuxt-module', '@nuxtjs/robots', '@vercel/analytics'],
   vuetify: {
     vuetifyOptions: './vuetify.config.ts',
   },
