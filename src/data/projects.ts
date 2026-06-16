@@ -3,6 +3,207 @@ import { getProjectsImgUrl } from '../utils/images';
 
 export const projects: IProject[] = [
   {
+    slug: 'i&bmonitoring',
+    link: '/project/i&bmonitoring',
+    title: 'I&B monitoring platform',
+    description: `I&B monitoring platform - це платформа для моніторингу інфраструктури та бізнесу, яка надає можливість відстежувати та аналізувати різноманітні метрики та показники. Вона дозволяє збирати дані з різних джерел, таких як сервери, бази даних, мережеві пристрої та додатки, і візуалізувати їх у вигляді графіків, діаграм та звітів. Платформа також може надавати сповіщення про аномалії або проблеми в системі, що дозволяє швидко реагувати на них та забезпечувати стабільність роботи інфраструктури та бізнесу.`,
+    ps: true,
+    titleImg: getProjectsImgUrl('/i&bmonitoring/home-page.png'),
+    images: [
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/home-page.png'),
+        title: 'Home Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/sign-page.png'),
+        title: 'Sign In Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/registration-page.png'),
+        title: 'Registration Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/subscriptions-page.png'),
+        title: 'Subscriptions Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/dashboard-page.png'),
+        title: 'Dashboard Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/dashboard-subscription-page.png'),
+        title: 'Dashboard Subscription Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/dashboard-notifications-page.png'),
+        title: 'Dashboard Notifications Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/dashboard-account-page.png'),
+        title: 'Dashboard Account Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/dashboard-personal-page.png'),
+        title: 'Dashboard Personal Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/dashboard-users-page.png'),
+        title: 'Dashboard Users Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-apps-page.png'),
+        title: 'Grafana Apps Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-configurator-home-page.png'),
+        title: 'Grafana Configurator Home Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-configurator-businesses-page.png'),
+        title: 'Grafana Configurator Businesses Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-configurator-businesses-mcards-page.png'),
+        title: 'Grafana Configurator Businesses mcards Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl(
+          '/i&bmonitoring/grafana-configurator-businesses-mcards-graph-page.png',
+        ),
+        title: 'Grafana Configurator Businesses mcards Graph Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl(
+          '/i&bmonitoring/grafana-configurator-businesses-mcards-business-page.png',
+        ),
+        title: 'Grafana Configurator Businesses mcards Business metrics Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl(
+          '/i&bmonitoring/grafana-configurator-businesses-mcards-subunits-page.png',
+        ),
+        title: 'Grafana Configurator Businesses mcards Subunits metrics Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl(
+          '/i&bmonitoring/grafana-configurator-businesses-mcards-issues-page.png',
+        ),
+        title: 'Grafana Configurator Businesses mcards Issues metrics Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-configurator-resources-page.png'),
+        title: 'Grafana Configurator Resources Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-dashboard-home-page.png'),
+        title: 'Grafana Dashboard Home Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-dashboard-bussines-page.png'),
+        title: 'Grafana Dashboard Bussines Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl(
+          '/i&bmonitoring/grafana-dashboard-bussines-metrics-jeopardy-page.png',
+        ),
+        title: 'Grafana Dashboard Bussines Metrics jeopardy Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-dashboard-bussines-all-metrics-page.png'),
+        title: 'Grafana Dashboard Bussines All Metrics Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-dashboard-bussines-all-metrics-page.png'),
+        title: 'Grafana Dashboard Bussines All Metrics Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-dashboard-bussines-details-page.png'),
+        title: 'Grafana Dashboard Bussines Details Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-dashboard-resources-page.png'),
+        title: 'Grafana Dashboard Resources Page',
+        mobile: false,
+      },
+      {
+        src: getProjectsImgUrl('/i&bmonitoring/grafana-dashboard-events-page.png'),
+        title: 'Grafana Dashboard Events Page',
+        mobile: false,
+      },
+    ],
+    technologies: [
+      { title: 'JAVASCRIPT', icon: 'fa-brands fa-js', custom: false },
+      { title: 'TYPESCRIPT', icon: 'TypescriptIcon', custom: true },
+      { title: 'GOLANG', icon: 'fa-brands fa-golang', custom: false },
+      { title: 'HTML5', icon: 'fa-brands fa-html5', custom: false },
+      { title: 'CSS3', icon: 'fa-brands fa-css3-alt', custom: false },
+      { title: 'TAILWIND', icon: 'fa-brands fa-tailwind-css', custom: false },
+      { title: 'REACTJS', icon: 'fa-brands fa-react', custom: false },
+      { title: 'NEXT.JS', icon: 'NextIcon', custom: true },
+      { title: 'NEST', icon: 'NestIcon', custom: true },
+      { title: 'POSTGRESQL', icon: 'PostgresIcon', custom: true },
+      { title: 'TYPEORM', icon: 'TypeOrmIcon', custom: true },
+      { title: 'GRAFANA', icon: 'GrafanaIcon', custom: true },
+      { title: 'PROMETHEUS', icon: 'PrometheusIcon', custom: true },
+      { title: 'LOKI', icon: 'LokiIcon', custom: true },
+      { title: 'TEMPO', icon: 'TempoIcon', custom: true },
+      { title: 'OTEL COLLECTOR', icon: 'OtelIcon', custom: true },
+      { title: 'DOCKER', icon: 'fa-brands fa-docker', custom: false },
+      { title: 'KUBERNETES', icon: 'fa-brands fa-kubernetes', custom: false },
+    ],
+    tags: [
+      { title: 'REACTJS', icon: 'fa-brands fa-react', custom: false },
+      { title: 'NEXT.JS', icon: 'NextIcon', custom: true },
+      { title: 'NEST', icon: 'NestIcon', custom: true },
+      { title: 'GRAFANA', icon: 'GrafanaIcon', custom: true },
+      { title: 'PROMETHEUS', icon: 'PrometheusIcon', custom: true },
+      { title: 'LOKI', icon: 'LokiIcon', custom: true },
+      { title: 'TEMPO', icon: 'TempoIcon', custom: true },
+      { title: 'TAILWIND', icon: 'fa-brands fa-tailwind-css', custom: false },
+    ],
+    links: [
+      {
+        key: 'link-app',
+        link: 'https://www.inbmonitoring.com/',
+        text: 'I&B monitoring platform',
+        fullText: 'I&B monitoring platform',
+        icon: 'fa-solid fa-arrow-up-right-from-square',
+      },
+      {
+        key: 'video',
+        link: 'https://www.inbmonitoring.com/video',
+        text: 'Video Presentation',
+        fullText: 'Video Presentation',
+        icon: 'fa-solid fa-video',
+      },
+    ],
+  },
+  {
     slug: 'gallery',
     link: '/project/gallery',
     title: 'Gallery',
@@ -126,6 +327,7 @@ export const projects: IProject[] = [
       { title: 'Docker', icon: 'fa-brands fa-docker', custom: false },
     ],
     tags: [{ title: 'VUEJS', icon: 'fa-brands fa-vuejs', custom: false }],
+    links: [],
   },
   {
     slug: 'house',
@@ -233,6 +435,7 @@ export const projects: IProject[] = [
       { title: 'Docker', icon: 'fa-brands fa-docker', custom: false },
     ],
     tags: [{ title: 'VUEJS', icon: 'fa-brands fa-vuejs', custom: false }],
+    links: [],
   },
   {
     slug: 'flight',
@@ -290,6 +493,7 @@ export const projects: IProject[] = [
       { title: 'Docker', icon: 'fa-brands fa-docker', custom: false },
     ],
     tags: [{ title: 'VUEJS', icon: 'fa-brands fa-vuejs', custom: false }],
+    links: [],
   },
   {
     slug: 'constructor',
@@ -321,6 +525,7 @@ export const projects: IProject[] = [
       { title: 'VUEJS', icon: 'fa-brands fa-vuejs', custom: false },
       { title: 'NUXT', icon: 'NuxtIcon', custom: true },
     ],
+    links: [],
   },
   {
     slug: 'fundraising',
@@ -386,6 +591,7 @@ export const projects: IProject[] = [
       { title: 'Docker', icon: 'fa-brands fa-docker', custom: false },
     ],
     tags: [{ title: 'VUEJS', icon: 'fa-brands fa-vuejs', custom: false }],
+    links: [],
   },
   {
     slug: 'mousemacros',
@@ -431,6 +637,7 @@ export const projects: IProject[] = [
       { title: 'TAURI', icon: 'TauriIcon', custom: true },
       { title: 'RUST', icon: 'fa-brands fa-rust', custom: false },
     ],
+    links: [],
   },
   {
     slug: 'keyboardmacros',
@@ -476,6 +683,7 @@ export const projects: IProject[] = [
       { title: 'TAURI', icon: 'TauriIcon', custom: true },
       { title: 'RUST', icon: 'fa-brands fa-rust', custom: false },
     ],
+    links: [],
   },
   {
     slug: 'portfolio',
@@ -531,6 +739,7 @@ export const projects: IProject[] = [
       { title: 'VUEJS', icon: 'fa-brands fa-vuejs', custom: false },
       { title: 'NUXT', icon: 'NuxtIcon', custom: true },
     ],
+    links: [],
   },
 ];
 
@@ -545,6 +754,7 @@ export function getProject(link: string): IProject {
     images: [{ src: '', title: '', mobile: false }],
     technologies: [],
     tags: [],
+    links: [],
   };
   return projects.find((project) => project.slug === link) ?? defaultP;
 }

@@ -33,13 +33,15 @@ function isFooterActive() {
 </script>
 
 <template>
-  <v-layout full-height class="layout flex-column bg-grey-darken-4">
-    <Header />
-    <v-main class="h-100">
-      <slot />
-    </v-main>
-    <Footer v-if="isFooterActive()" />
-  </v-layout>
+  <v-app>
+    <v-layout full-height class="layout flex-column bg-grey-darken-4">
+      <Header />
+      <v-main class="h-100">
+        <slot />
+      </v-main>
+      <Footer v-if="isFooterActive()" />
+    </v-layout>
+  </v-app>
 </template>
 
 <style lang="scss">

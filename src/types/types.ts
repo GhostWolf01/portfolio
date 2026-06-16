@@ -32,6 +32,7 @@ export interface IProject {
   images: IProjectImage[];
   technologies: ITechnology[];
   tags: ITag[];
+  links: ILinks[];
 }
 
 export interface IMenuItem {
