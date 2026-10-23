@@ -11,3 +11,5 @@ docker compose -f docker-compose.dev.yaml up
 docker compose -f docker-compose.prod.yaml build
 docker compose -f docker-compose.prod.yaml up
 ```
+
+# test ssh
